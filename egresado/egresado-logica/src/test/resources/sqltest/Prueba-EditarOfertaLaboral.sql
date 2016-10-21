@@ -1,0 +1,6 @@
+insert into egresados.t_areainteres(ID_AREA,NOMBRE_AREA) values (777,'Desarrollo web')
+insert into egresados.t_departamento(ID_DEPARTAMENTO,NOMBRE_DEPARTAMENTO) values (333,'Tolima')
+insert into egresados.t_ciudad(ID_CIUDAD,NOM_CIUDAD,ID_DEPARTAMENTO) values (838,'Ibague',333)
+insert into egresados.t_sectorlaboral(ID_SECTORLABORAL,NOM_SECTORLABORAL) values (111,'Sinstemas informativos')
+insert into egresados.t_empresa(ID_EMPRESA,CIUDAD,DEPARTAMENTO,DIRECCION,FAX,NIT,PAIS,RAZON_SOCIAL,SITIO_WEB,TELEFONO,TIPO_EMPRESA,ID_CIUDAD,ID_SECTOR) values (181,'Ibague','Tolima','cra 13','732','12345','Colombia','no se','cualquiercosa@gmail.com','33333','Privada',838,111)
+insert into t_ofertalaboral(ID_OFERTA,CARGO_OFRECER,CERRA_OFERTA,DESCRIPCION_OFERTA,FECHA_OFERTA,REQUISITO_OFERTA,RESUMEN_OFERTA,SALARIO,ID_AREA,ID_CIUDAD,ID_EMPRESA)values (567,'Secretario',1,'HHHH','2016-04-05','hhh','hhh',897654,777,838,181)

@@ -1,0 +1,1 @@
+insert into t_areainteres(ID_AREA,NOMBRE_AREA) values (43,'Desarrollo')
