@@ -31,7 +31,6 @@ public class InformacionLaboral implements Serializable {
 	private int codEgresado;	
 	
 	@OneToOne
-	@MapsId
 	@JoinColumn(name="ID_EGRESADO", insertable=false, updatable=false)
 	private Egresado egresado;
 	
@@ -66,33 +65,37 @@ public class InformacionLaboral implements Serializable {
 		
 	}
 
-	public InformacionLaboral(Egresado egresado, String situcionLaboral, String sectorLaboral,
-			String tipoEmpresa, String nombreEmpresa, String cargoEmpresa, Date fechaIngreso, Date fechaSalida) {
-		super();
-		//this.codEgresado = codEgresado;
-		this.egresado = egresado;
-		this.situcionLaboral = situcionLaboral;
-		this.sectorLaboral = sectorLaboral;
-		this.tipoEmpresa = tipoEmpresa;
-		this.nombreEmpresa = nombreEmpresa;
-		this.cargoEmpresa = cargoEmpresa;
-		this.fechaIngreso = fechaIngreso;
-		this.fechaSalida = fechaSalida;
-	}
+	
+
+	public InformacionLaboral(int codEgresado, Egresado egresado, String situcionLaboral, String sectorLaboral,
+		String tipoEmpresa, String nombreEmpresa, String cargoEmpresa, Date fechaIngreso, Date fechaSalida) {
+	super();
+	this.codEgresado = egresado.getId();
+	this.egresado = egresado;
+	this.situcionLaboral = situcionLaboral;
+	this.sectorLaboral = sectorLaboral;
+	this.tipoEmpresa = tipoEmpresa;
+	this.nombreEmpresa = nombreEmpresa;
+	this.cargoEmpresa = cargoEmpresa;
+	this.fechaIngreso = fechaIngreso;
+	this.fechaSalida = fechaSalida;
+}
+
+
 
 	/**
 	 * @return the codEgresado
 	 */
-//	public int getCodEgresado() {
-//		return codEgresado;
-//	}
-//
-//	/**
-//	 * @param codEgresado the codEgresado to set
-//	 */
-//	public void setCodEgresado(int codEgresado) {
-//		this.codEgresado = codEgresado;
-//	}
+	public int getCodEgresado() {
+		return codEgresado;
+	}
+
+	/**
+	 * @param codEgresado the codEgresado to set
+	 */
+	public void setCodEgresado(int codEgresado) {
+		this.codEgresado = egresado.getId();
+	}
 
 	/**
 	 * @return the egresado
@@ -106,7 +109,7 @@ public class InformacionLaboral implements Serializable {
 	 */
 	public void setEgresado(Egresado egresado) {
 		this.egresado = egresado;
-	//	codEgresado=egresado.getId();
+		//codEgresado=egresado.getId();
 	}
 
 	/**

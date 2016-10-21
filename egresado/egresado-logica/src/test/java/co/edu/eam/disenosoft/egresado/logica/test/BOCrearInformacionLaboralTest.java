@@ -44,6 +44,7 @@ public class BOCrearInformacionLaboralTest {
 	
 		infoLab.setCargoEmpresa("Area Sistemas");
 		infoLab.setEgresado(egresado);
+		infoLab.setCodEgresado(egresado.getId());
 		Calendar fecIn = Calendar.getInstance();  
 		fecIn.set(2015, 01, 20);  
 		infoLab.setFechaIngreso(fecIn.getTime());
