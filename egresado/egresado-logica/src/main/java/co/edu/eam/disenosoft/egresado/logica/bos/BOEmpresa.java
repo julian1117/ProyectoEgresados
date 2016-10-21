@@ -25,7 +25,7 @@ public class BOEmpresa {
 
 	public void editarEmpresa (Empresa empresa) throws Exception{
 		Empresa emp = daoEmpresa.buscarEmpresa(empresa.getId());
-		JOptionPane.showMessageDialog(null, empresa.getId());
+		
 		if(emp != null){
 			daoEmpresa.editarEmpresa(empresa);
 		}else{
