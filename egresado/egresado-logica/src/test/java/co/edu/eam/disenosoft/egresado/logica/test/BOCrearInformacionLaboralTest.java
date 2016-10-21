@@ -39,7 +39,7 @@ public class BOCrearInformacionLaboralTest {
 	public void testCrearInformacionLaboral() throws Exception {
 
 		Egresado egresado = boEgresado.buscarEgresado(1088);
-		
+				
 		InformacionLaboral infoLab = new InformacionLaboral();
 	
 		infoLab.setCargoEmpresa("Area Sistemas");
