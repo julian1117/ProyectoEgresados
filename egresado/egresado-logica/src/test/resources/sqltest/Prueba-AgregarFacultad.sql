@@ -1,0 +1,1 @@
+INSERT INTO egresados.t_facultad (ID_FACULTAD, NOMBRE_FACULTAD) VALUES(9,'Ciencias Humanas')

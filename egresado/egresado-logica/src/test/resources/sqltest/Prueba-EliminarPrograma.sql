@@ -1,0 +1,2 @@
+DELETE FROM t_programa where ID_PROGRAMA=24
+DELETE FROM t_facultad WHERE ID_FACULTAD=11

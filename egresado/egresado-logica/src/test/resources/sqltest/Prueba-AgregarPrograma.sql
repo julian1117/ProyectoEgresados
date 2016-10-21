@@ -1,0 +1,1 @@
+INSERT INTO t_facultad (ID_FACULTAD, NOMBRE_FACULTAD) values (11,'comunicacion')
