@@ -36,7 +36,7 @@ public class BOCrearInformacionLaboralTest {
 	}
 
 	@Test
-	public void testCrearPrograma() throws Exception {
+	public void testCrearInformacionLaboral() throws Exception {
 
 		Egresado egresado = boEgresado.buscarEgresado(1088);
 		
@@ -48,7 +48,7 @@ public class BOCrearInformacionLaboralTest {
 		fecIn.set(2015, 01, 20);  
 		infoLab.setFechaIngreso(fecIn.getTime());
 		Calendar fecSa = Calendar.getInstance();  
-		fecSa.set(2016, 10, 20);  
+		fecSa.set(2016, 10, 20);
 		infoLab.setFechaSalida(fecSa.getTime());
 		infoLab.setNombreEmpresa("Pepito Soft");
 		infoLab.setSectorLaboral("Sistemas informaticos");
@@ -66,6 +66,7 @@ public class BOCrearInformacionLaboralTest {
 			Assert.assertEquals("Area Sistemas",informacion.getCargoEmpresa());
 
 		} catch (Exception e) {
+			e.printStackTrace();
 			Assert.fail();
 		}
 

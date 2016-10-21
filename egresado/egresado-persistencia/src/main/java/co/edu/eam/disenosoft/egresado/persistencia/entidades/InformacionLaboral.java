@@ -106,6 +106,7 @@ public class InformacionLaboral implements Serializable {
 	 */
 	public void setEgresado(Egresado egresado) {
 		this.egresado = egresado;
+		codEgresado=egresado.getId();
 	}
 
 	/**

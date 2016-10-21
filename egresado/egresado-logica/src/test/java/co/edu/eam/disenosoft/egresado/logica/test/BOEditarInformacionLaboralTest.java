@@ -35,7 +35,7 @@ public class BOEditarInformacionLaboralTest {
 	@Test
 	public void testEditarInformacionLaboral() throws Exception {
 
-		Egresado egresado = boEgresado.buscarEgresado(1097);
+		Egresado egresado = boEgresado.buscarEgresado(1088);
 		
 		InformacionLaboral infoLab = new InformacionLaboral();
 	
@@ -57,7 +57,7 @@ public class BOEditarInformacionLaboralTest {
 
 			boInfoLab.editarInformacionLaboral(infoLab);
 			
-			InformacionLaboral informacion = boInfoLab.buscarInformacionLaboral(1090);
+			InformacionLaboral informacion = boInfoLab.buscarInformacionLaboral(1088);
 			System.out.println("--------------------------------" +informacion.getSitucionLaboral());
 			Assert.assertNotNull(informacion);
 			Assert.assertEquals("Bases de datos",informacion.getCargoEmpresa());
