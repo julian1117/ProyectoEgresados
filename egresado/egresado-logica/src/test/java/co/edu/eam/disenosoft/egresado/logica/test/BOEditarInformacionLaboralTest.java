@@ -35,12 +35,13 @@ public class BOEditarInformacionLaboralTest {
 	@Test
 	public void testEditarInformacionLaboral() throws Exception {
 
-		Egresado egresado = boEgresado.buscarEgresado(1097);
+		Egresado egresado = boEgresado.buscarEgresado(1088);
 		
 		InformacionLaboral infoLab = new InformacionLaboral();
 	
 		infoLab.setCargoEmpresa("Bases de datos");
 		infoLab.setEgresado(egresado);
+		infoLab.setCodEgresado(egresado.getId());
 		Calendar fecIn = Calendar.getInstance();  
 		fecIn.set(2010, 01, 20);  
 		infoLab.setFechaIngreso(fecIn.getTime());
@@ -57,7 +58,7 @@ public class BOEditarInformacionLaboralTest {
 
 			boInfoLab.editarInformacionLaboral(infoLab);
 			
-			InformacionLaboral informacion = boInfoLab.buscarInformacionLaboral(1090);
+			InformacionLaboral informacion = boInfoLab.buscarInformacionLaboral(1088);
 			System.out.println("--------------------------------" +informacion.getSitucionLaboral());
 			Assert.assertNotNull(informacion);
 			Assert.assertEquals("Bases de datos",informacion.getCargoEmpresa());
