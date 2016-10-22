@@ -33,7 +33,7 @@ public class BOEditarEmpresaTest {
 	}
 
 	@Test
-	public void testCrearEmpresa() throws Exception {
+	public void testEditarEmpresa() throws Exception {
 
 		try {
 			Empresa empresa = new Empresa();

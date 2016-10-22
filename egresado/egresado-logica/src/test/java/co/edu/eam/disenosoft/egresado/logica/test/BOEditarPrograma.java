@@ -30,7 +30,7 @@ public class BOEditarPrograma {
 	
 	
 	@Test
-	public void testEditarFacultad() throws Exception{
+	public void testEditarPrograma() throws Exception{
 				
 		Facultad facul = boFacultad.buscarFacultad(23);
 		Programa prog = new Programa();

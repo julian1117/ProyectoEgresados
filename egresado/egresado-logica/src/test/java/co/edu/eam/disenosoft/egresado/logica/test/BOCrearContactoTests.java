@@ -55,7 +55,9 @@ public class BOCrearContactoTests {
 			Assert.fail();
 		}
 	}
-	
+	/**
+	 * 
+	 */
 	@AfterClass
 	public static void afterClass() {
 		TestDataUtil.ejecutarSQL("sqltest/Prueba-EliminarContacto.sql");

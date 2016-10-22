@@ -42,7 +42,7 @@ public class BOOfertaLaboralTest {
 	}
 
 	@Test
-	public void testCrearOferta() throws Exception {
+	public void testCrearOfertaLaboral() throws Exception {
 
 		Empresa em = boEmpresa.buscarEmpresa(11);
 		AreaInteres area = boArea.buscarAreaInteres(77);

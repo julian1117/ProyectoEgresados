@@ -30,7 +30,7 @@ public class BOEditarEgresadoTest {
 	}
 
 	@Test
-	public void testCrearPrograma() throws Exception {
+	public void testEditarEgresado() throws Exception {
 
 		Programa pro = boPrograma.buscarPrograma(15);
 

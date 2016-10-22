@@ -93,9 +93,9 @@ public class InformacionLaboral implements Serializable {
 	/**
 	 * @param codEgresado the codEgresado to set
 	 */
-	public void setCodEgresado(int codEgresado) {
-		this.codEgresado = egresado.getId();
-	}
+//	public void setCodEgresado(int codEgresado) {
+//		this.codEgresado = egresado.getId();
+//	}
 
 	/**
 	 * @return the egresado
@@ -109,7 +109,7 @@ public class InformacionLaboral implements Serializable {
 	 */
 	public void setEgresado(Egresado egresado) {
 		this.egresado = egresado;
-		//codEgresado=egresado.getId();
+		codEgresado=egresado.getId();
 	}
 
 	/**

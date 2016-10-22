@@ -29,7 +29,7 @@ public class BOEditarContactoTest {
 	
 	
 	@Test
-	public void testCrearContacto() throws Exception {
+	public void testEditarContacto() throws Exception {
 		
 			Empresa empre = boEmpresa.buscarEmpresa(98);
 			

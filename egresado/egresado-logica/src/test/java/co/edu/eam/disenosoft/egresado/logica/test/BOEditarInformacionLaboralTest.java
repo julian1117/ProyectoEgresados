@@ -41,7 +41,7 @@ public class BOEditarInformacionLaboralTest {
 	
 		infoLab.setCargoEmpresa("Bases de datos");
 		infoLab.setEgresado(egresado);
-		infoLab.setCodEgresado(egresado.getId());
+		//infoLab.setCodEgresado(egresado.getId());
 		Calendar fecIn = Calendar.getInstance();  
 		fecIn.set(2010, 01, 20);  
 		infoLab.setFechaIngreso(fecIn.getTime());

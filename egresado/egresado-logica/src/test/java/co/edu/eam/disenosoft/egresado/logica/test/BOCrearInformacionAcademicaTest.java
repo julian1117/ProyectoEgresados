@@ -37,7 +37,7 @@ public class BOCrearInformacionAcademicaTest {
 	}
 
 	@Test
-	public void testCrearPrograma() throws Exception {
+	public void testCrearInformacionAcademica() throws Exception {
 
 		Egresado egresado = boEgresado.buscarEgresado(1088);
 		

@@ -26,7 +26,7 @@ public class BOAreaInteresTest {
 	}
 	
 	@Test
-	public void testCrearArea() throws Exception{
+	public void CrearAreaTest() throws Exception{
 		try {
 			
 			AreaInteres area = boArea.buscarAreaInteres(43);

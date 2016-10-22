@@ -32,7 +32,7 @@ public class BOEditarInformacionAcademicaTest {
 	}
 
 	@Test
-	public void testCrearPrograma() throws Exception {
+	public void testEditarInformacionAcademica() throws Exception {
 
 	
 		Egresado egresado = boEgresado.buscarEgresado(1088);
