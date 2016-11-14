@@ -435,8 +435,8 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 			ofertaLa.setResumen(jTAResumen.getText());
 			ofertaLa.setIdOferta(Integer.parseInt(jTFIdOferta.getText()));
 
-			String idE = (String) jCBIdEmpresa.getSelectedItem();
-			Empresa empre = conBolsa.buscarEmpresa(Integer.parseInt(idE));
+			Empresa emp = (Empresa) jCBIdEmpresa.getSelectedItem();
+			Empresa empre = conBolsa.buscarEmpresa(emp.getId());
 
 			ofertaLa.setIdempresa(empre);
 			ofertaLa.setRequisitoOferta(jTARequerimientosOferta.getText());
