@@ -1223,7 +1223,7 @@ public class Egresados extends javax.swing.JFrame {
 	private void jBGuardarDatosEgresadoActionPerformed(java.awt.event.ActionEvent evt) {
 		try {
 			if(jTFNumDocDP.getText().length()<= 10 &&
-					JTFNumCelDP.getText().length() >= 10 &&
+					JTFNumCelDP.getText().length() <= 10 &&
 					JTFNumTelDP.getText().length() <=7 ){
 				
 				co.edu.eam.disenosoft.egresado.persistencia.entidades.Egresado egresado = new co.edu.eam.disenosoft.egresado.persistencia.entidades.Egresado();
