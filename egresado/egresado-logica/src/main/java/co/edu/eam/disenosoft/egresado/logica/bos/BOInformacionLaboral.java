@@ -64,4 +64,14 @@ public class BOInformacionLaboral {
 	public List<SectorLaboral> listaLaboral() throws Exception {
 		return daoInfoLab.listaLaboral();
 	}
+	
+	/**
+	 * Lista de informacion laboral
+	 * @return lista con informaicon laboral
+	 * @throws Exception
+	 */
+	public List<InformacionLaboral> listaInfomracionLaboral() throws Exception {
+		return daoInfoLab.listaInfomracionLaboral();
+	}
+
 }

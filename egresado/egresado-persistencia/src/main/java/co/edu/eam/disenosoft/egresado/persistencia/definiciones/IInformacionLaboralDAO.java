@@ -16,4 +16,5 @@ public interface IInformacionLaboralDAO {
 	
 	List<SectorLaboral> listaLaboral() throws Exception;
 	
+	List<InformacionLaboral> listaInfomracionLaboral() throws Exception;
 }

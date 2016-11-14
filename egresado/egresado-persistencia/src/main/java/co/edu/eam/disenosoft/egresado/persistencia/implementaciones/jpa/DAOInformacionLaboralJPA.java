@@ -63,4 +63,14 @@ public class DAOInformacionLaboralJPA implements IInformacionLaboralDAO {
 		return listaSeptor;
 	}
 
+	/**
+	 * Lista de toda la informacion laboral en la DB
+	 */
+	public List<InformacionLaboral> listaInfomracionLaboral() throws Exception {
+		EntityManager em = AdministradorEntityManager.getEntityManager();
+		Query q = em.createNamedQuery(InformacionLaboral.LISTA_iNFROMACION_LABORAL);
+		List<InformacionLaboral> listaInfomracionLaboral = q.getResultList();			
+		return listaInfomracionLaboral;
+	}
+
 }

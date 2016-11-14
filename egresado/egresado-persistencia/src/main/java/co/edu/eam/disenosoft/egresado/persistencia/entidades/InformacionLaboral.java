@@ -20,11 +20,15 @@ import javax.persistence.TemporalType;
 
 import com.mysql.fabric.jdbc.FabricMySQLDataSource;
 
+@NamedQueries({
+	@NamedQuery(name=InformacionLaboral.LISTA_iNFROMACION_LABORAL,query="SELECT i FROM InformacionLaboral i")
+})
+
 @Entity
 @Table(name="T_INFO_LABORAL")
 public class InformacionLaboral implements Serializable {
 
-	
+	public static final String LISTA_iNFROMACION_LABORAL = "InformacionLaboral.listaInfomracionLaboral";
 	
 	@Id
 	@Column(name="ID_EGRESADO")
