@@ -383,10 +383,12 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 			ofertaLa.setResumen(jTAResumen.getText());
 			ofertaLa.setIdOferta(Integer.parseInt(jTFIdOferta.getText()));
 
-			String idE = (String) jCBIdEmpresa.getSelectedItem();
-			Empresa empre = conBolsa.buscarEmpresa(Integer.parseInt(idE));
+			Empresa emp = (Empresa) jCBIdEmpresa.getSelectedItem();
+			
+			//int idE = (Integer) jCBIdEmpresa.getSelectedItem();
+			Empresa empre = conBolsa.buscarEmpresa(emp.getId());
 
-			//ofertaLa.setIdempresa(empre);
+			ofertaLa.setIdempresa(empre);
 			ofertaLa.setRequisitoOferta(jTARequerimientosOferta.getText());
 			ofertaLa.setDescripcionOferta(jTADescripcionOferta.getText());
 
@@ -580,10 +582,10 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 	public void listarEmpresa() {
 		try {
 			jCBIdEmpresa.removeAllItems();
-			jCBIdEmpresa.addItem("Seleccione una empresa");
+			//jCBIdEmpresa.addItem("Seleccione una empresa");
 			List<Empresa> listaEmpresa = conBolsa.listaEmpresa();
 			for (int i = 0; i < listaEmpresa.size(); i++) {
-				jCBIdEmpresa.addItem(listaEmpresa.get(i).getId()+"-"+ listaEmpresa.get(i).getNit());
+				jCBIdEmpresa.addItem(listaEmpresa.get(i));
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -644,7 +646,7 @@ public class BolsaEmpleo extends javax.swing.JFrame{
     private javax.swing.JButton jBRegistro;
     private javax.swing.JComboBox<String> jCBAreaConocimiento;
     private javax.swing.JComboBox<String> jCBCiudadOferta;
-    private javax.swing.JComboBox<String> jCBIdEmpresa;
+    private javax.swing.JComboBox<Empresa> jCBIdEmpresa;
     private com.toedter.calendar.JDateChooser jCalendarOferta;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
