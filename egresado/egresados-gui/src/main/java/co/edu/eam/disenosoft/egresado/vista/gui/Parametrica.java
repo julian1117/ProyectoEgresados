@@ -200,7 +200,7 @@ public class Parametrica extends javax.swing.JFrame {
                     .addGroup(jPGestionProgramaLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         jPGestionProgramaLayout.setVerticalGroup(
             jPGestionProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +209,7 @@ public class Parametrica extends javax.swing.JFrame {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         jPGestionesParametrica.addTab("Gestion de Programa", jPGestionPrograma);
@@ -309,12 +309,12 @@ public class Parametrica extends javax.swing.JFrame {
                     .addGroup(jPGestionAreasLayout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         jPGestionAreasLayout.setVerticalGroup(
             jPGestionAreasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPGestionAreasLayout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+                .addContainerGap(51, Short.MAX_VALUE)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -369,6 +369,12 @@ public class Parametrica extends javax.swing.JFrame {
 
         jLabel2.setText("Id facultad");
 
+        jTFIdFacultad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFIdFacultadKeyTyped(evt);
+            }
+        });
+
         jLabel3.setText("Nombre de la facultad");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -402,23 +408,23 @@ public class Parametrica extends javax.swing.JFrame {
         jPGestionFacultad.setLayout(jPGestionFacultadLayout);
         jPGestionFacultadLayout.setHorizontalGroup(
             jPGestionFacultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPGestionFacultadLayout.createSequentialGroup()
-                .addContainerGap(71, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80))
             .addGroup(jPGestionFacultadLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(92, 92, 92)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPGestionFacultadLayout.createSequentialGroup()
+                .addContainerGap(74, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67))
         );
         jPGestionFacultadLayout.setVerticalGroup(
             jPGestionFacultadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPGestionFacultadLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         jPGestionesParametrica.addTab("Gestionar Facultades", jPGestionFacultad);
@@ -428,24 +434,26 @@ public class Parametrica extends javax.swing.JFrame {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jPGestionesParametrica, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(44, 44, 44)
+                .addComponent(jPGestionesParametrica, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jPGestionesParametrica, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jPGestionesParametrica, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, Short.MAX_VALUE)
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -473,14 +481,16 @@ public class Parametrica extends javax.swing.JFrame {
     private void jBCrearGestionAreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearGestionAreasActionPerformed
         
     	try{
-    		
-    		AreaInteres area = new AreaInteres();
-    		area.setIdArea(Integer.parseInt(jTFIdAreaInteres.getText()));
-    		area.setNombre(jTFNombreAreaInteres.getText());
-    		
-    		contParametrica.crearAreaInteres(area);
-    		limpiarCamposAreaInteres();
-    		JOptionPane.showMessageDialog(null, "Area de interes creada con exito");
+    		if(jTFIdAreaInteres.getText().length() <= 10){
+    			AreaInteres area = new AreaInteres();
+        		area.setIdArea(Integer.parseInt(jTFIdAreaInteres.getText()));
+        		area.setNombre(jTFNombreAreaInteres.getText());
+    			contParametrica.crearAreaInteres(area);
+        		limpiarCamposAreaInteres();
+        		JOptionPane.showMessageDialog(null, "Area de interes creada con exito");
+    		}else{
+    			JOptionPane.showMessageDialog(null, "El Id no puede obtener mas de 10 caracteres");
+    		} 		
     		
     	}catch (ExcepcionNegocio ex) {
     			JOptionPane.showMessageDialog(null, ex.getMessage());
@@ -492,18 +502,17 @@ public class Parametrica extends javax.swing.JFrame {
 
     private void jBEditarGestionAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarGestionAreaActionPerformed
         
-    	try{
-    		
-    		AreaInteres area = new AreaInteres();
-    		
+    	try{    		
+    		AreaInteres area = new AreaInteres();    		
     		area.setIdArea(Integer.parseInt(jTFIdAreaInteres.getText()));
-    		area.setNombre(jTFNombreAreaInteres.getText());
-    		
-    		contParametrica.editarAreaInteres(area);
-    		
-    		JOptionPane.showMessageDialog(null, "Area de interes editada con exito");
-    		
-    	}catch (ExcepcionNegocio ex) {
+    		if(jTFNombreAreaInteres.getText().isEmpty()){
+    			JOptionPane.showMessageDialog(null, "Por favor ingresar un nombre");
+    		}else{    			
+    			area.setNombre(jTFNombreAreaInteres.getText());    		
+        		contParametrica.editarAreaInteres(area);
+        		JOptionPane.showMessageDialog(null, "Area de interes editada con exito");
+    		}
+    		}catch (ExcepcionNegocio ex) {
 			JOptionPane.showMessageDialog(null, ex.getMessage());
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -511,8 +520,13 @@ public class Parametrica extends javax.swing.JFrame {
     	
     }//GEN-LAST:event_jBEditarGestionAreaActionPerformed
 
+    private void jTFIdFacultadKeyTyped1(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFIdFacultadKeyTyped
+        eventoNumero(evt);
+    }//GEN-LAST:event_jTFIdFacultadKeyTyped
+
 	private void jBCrearGestionProgramaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBCrearGestionProgramaActionPerformed
 		try {
+			if(jTFIdPrograma.getText().length() <= 10){
 			Programa pro = new Programa();
 			Facultad fac = contParametrica.buscarFacultad(Integer.parseInt(jTFIdFacultadPro.getText()));
 			
@@ -523,6 +537,9 @@ public class Parametrica extends javax.swing.JFrame {
 			contParametrica.crearPrograma(pro);
 			limpiarCamposPrograma();
 			JOptionPane.showMessageDialog(null, "Programa creado con exito");
+			}else{
+				JOptionPane.showMessageDialog(null, "El Id no puede obtener mas de 10 caracteres");
+			}
 		} catch (ExcepcionNegocio ex) {
 
 		}catch (Exception e) {
@@ -557,14 +574,17 @@ public class Parametrica extends javax.swing.JFrame {
 	private void jBCrearGestionFacultadActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBCrearGestionFacultadActionPerformed
 
 		try {
-			Facultad fac = new Facultad();
-			fac.setIdFacultad(Integer.parseInt(jTFIdFacultad.getText()));
-			fac.setNombreFacultad(jTFNombreFacultad.getText());
+			if(jTFIdFacultad.getText().length() <= 10){
+				Facultad fac = new Facultad();
+				fac.setIdFacultad(Integer.parseInt(jTFIdFacultad.getText()));
+				fac.setNombreFacultad(jTFNombreFacultad.getText());
 
-			contParametrica.crearFacultad(fac);
-			limpiarCamposFacultad();
-			JOptionPane.showMessageDialog(null, "Facultad creada");
-
+				contParametrica.crearFacultad(fac);
+				limpiarCamposFacultad();
+				JOptionPane.showMessageDialog(null, "Facultad creada");
+			}else{
+				JOptionPane.showMessageDialog(null, "El Id no puede obtener mas de 10 caracteres");
+			}
 		} catch (ExcepcionNegocio ex) {
 			JOptionPane.showMessageDialog(null, ex.getMessage());
 		} catch (Exception e) {
@@ -580,12 +600,14 @@ public class Parametrica extends javax.swing.JFrame {
 			Facultad fac = new Facultad();
 
 			fac.setIdFacultad(Integer.parseInt(jTFIdFacultad.getText()));
-			fac.setNombreFacultad(jTFNombreFacultad.getText());
-
-			contParametrica.editarFacultad(fac);
-			limpiarCamposFacultad();
-			JOptionPane.showMessageDialog(null, "Facultad editada con exito");
-
+			if(jTFNombreFacultad.getText().isEmpty()){
+    			JOptionPane.showMessageDialog(null, "Por favor ingresar un nombre");
+    		}else{ 
+    			fac.setNombreFacultad(jTFNombreFacultad.getText());
+    			contParametrica.editarFacultad(fac);
+    			limpiarCamposFacultad();
+    			JOptionPane.showMessageDialog(null, "Facultad editada con exito");
+    		}
 		} catch (ExcepcionNegocio e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		} catch (Exception ex) {

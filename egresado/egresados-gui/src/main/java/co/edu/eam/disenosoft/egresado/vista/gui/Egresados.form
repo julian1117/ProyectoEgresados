@@ -560,6 +560,9 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTFNumeroDiplomaED">
+                      <Events>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFNumeroDiplomaEDKeyTyped"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel18">
                       <Properties>
@@ -586,6 +589,9 @@
                     <Component class="com.toedter.calendar.JDateChooser" name="jDCFechaGrado">
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTFIdDelEgresado">
+                      <Events>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFIdDelEgresadoKeyTyped"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel10">
                       <Properties>
@@ -1077,6 +1083,9 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTFIdDelEgresadoB">
+                      <Events>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFIdDelEgresadoBKeyTyped"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

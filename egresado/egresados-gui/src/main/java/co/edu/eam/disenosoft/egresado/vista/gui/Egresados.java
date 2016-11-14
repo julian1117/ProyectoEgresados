@@ -387,9 +387,21 @@ public class Egresados extends javax.swing.JFrame {
 
         jLabel17.setText("Numero del Diploma");
 
+        jTFNumeroDiplomaED.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFNumeroDiplomaEDKeyTyped(evt);
+            }
+        });
+
         jLabel18.setText("Maximo Nivel Academico");
 
         jCBNivelAlcED.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione una opcion...", "Diplomado", "Pregrado", "Postgrado", "Doctorado", "Postdoctorado" }));
+
+        jTFIdDelEgresado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFIdDelEgresadoKeyTyped(evt);
+            }
+        });
 
         jLabel10.setText("Id del egresado  DESABILITAR");
 
@@ -625,6 +637,12 @@ public class Egresados extends javax.swing.JFrame {
         jCBSectorLaboral.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione sector laboral", "Privado", "Publico" }));
 
         jLabel12.setText("Id del egresado");
+
+        jTFIdDelEgresadoB.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFIdDelEgresadoBKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -920,6 +938,18 @@ public class Egresados extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTFIdDelEgresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFIdDelEgresadoKeyTyped
+    	eventoNumero(evt);
+    }//GEN-LAST:event_jTFIdDelEgresadoKeyTyped
+
+    private void jTFNumeroDiplomaEDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNumeroDiplomaEDKeyTyped
+    	eventoNumero(evt);
+    }//GEN-LAST:event_jTFNumeroDiplomaEDKeyTyped
+
+    private void jTFIdDelEgresadoBKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFIdDelEgresadoBKeyTyped
+    	eventoNumero(evt);
+    }//GEN-LAST:event_jTFIdDelEgresadoBKeyTyped
+
 	private void jBAplicarOfertaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBAplicarOfertaActionPerformed
 		try {
 			int fila = this.jTOfertaLab.getSelectedRow();
@@ -968,19 +998,19 @@ public class Egresados extends javax.swing.JFrame {
 	}// GEN-LAST:event_jButton1ActionPerformed
 
 	private void JTFNumTelDPKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_JTFNumTelDPKeyTyped
-		// TODO add your handling code here:
+		eventoNumero(evt);
 	}// GEN-LAST:event_JTFNumTelDPKeyTyped
 
 	private void JTFNumCelDPKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_JTFNumCelDPKeyTyped
-		// TODO add your handling code here:
+		eventoNumero(evt);
 	}// GEN-LAST:event_JTFNumCelDPKeyTyped
 
 	private void jTFNumDocDPKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTFNumDocDPKeyTyped
-		// TODO add your handling code here:
+		eventoNumero(evt);
 	}// GEN-LAST:event_jTFNumDocDPKeyTyped
 
 	private void jTFIdProgramDPKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTFIdProgramDPKeyTyped
-		// TODO add your handling code here:
+		eventoNumero(evt);
 	}// GEN-LAST:event_jTFIdProgramDPKeyTyped
 
 	private void jBCancelarDPActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBCancelarDPActionPerformed
@@ -1044,21 +1074,26 @@ public class Egresados extends javax.swing.JFrame {
 
 	private void jBEditarInformacionAcademicaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBEditarInformacionAcademicaActionPerformed
 		try {
-			InformacionAcademica infoAc = new InformacionAcademica();
+			if(jTFIdDelEgresado.getText().length()<=10){
+				InformacionAcademica infoAc = new InformacionAcademica();
 
-			Egresado egre = contEgresado.buscarEgresado(Integer.parseInt(jTFIdDelEgresado.getText()));
+				Egresado egre = contEgresado.buscarEgresado(Integer.parseInt(jTFIdDelEgresado.getText()));
 
-			infoAc.setAreaConocimiento(jTAAreasED.getText());
-			infoAc.setEgresado(egre);
-			infoAc.setFacultad((String) jCBFacultadED.getSelectedItem());
-			infoAc.setFechaGrado(jDCFechaGrado.getDate());
-			infoAc.setMaximoNivelAcademico((String) jCBNivelAlcED.getSelectedItem());
-			infoAc.setNumeroDiploma(jTFNumeroDiplomaED.getText());
-			infoAc.setProgramaAcademico((String) jCBProgramaED.getSelectedItem());
+				infoAc.setAreaConocimiento(jTAAreasED.getText());
+				infoAc.setEgresado(egre);
+				infoAc.setFacultad((String) jCBFacultadED.getSelectedItem());
+				infoAc.setFechaGrado(jDCFechaGrado.getDate());
+				infoAc.setMaximoNivelAcademico((String) jCBNivelAlcED.getSelectedItem());
+				infoAc.setNumeroDiploma(jTFNumeroDiplomaED.getText());
+				infoAc.setProgramaAcademico((String) jCBProgramaED.getSelectedItem());
 
-			contEgresado.editarInformacionAcademica(infoAc);
+				contEgresado.editarInformacionAcademica(infoAc);
 
-			JOptionPane.showMessageDialog(null, "Informacion academica del egresado editada con exito");
+				JOptionPane.showMessageDialog(null, "Informacion academica del egresado editada con exito");
+			}else{
+				JOptionPane.showMessageDialog(null, "Verifique que el id del egresado no obtenga mas de 10 caracteres");
+			}
+			
 
 		} catch (ExcepcionNegocio ex) {
 			JOptionPane.showMessageDialog(null, ex.getMessage());
@@ -1187,25 +1222,35 @@ public class Egresados extends javax.swing.JFrame {
 
 	private void jBGuardarDatosEgresadoActionPerformed(java.awt.event.ActionEvent evt) {
 		try {
-			co.edu.eam.disenosoft.egresado.persistencia.entidades.Egresado egresado = new co.edu.eam.disenosoft.egresado.persistencia.entidades.Egresado();
-
-			int idProg = Integer.parseInt(jTFIdProgramDP.getText());
-			Programa prog = contEgresado.buscarPrograma(idProg);
-			
-				egresado.setId(Integer.parseInt(jTFNumDocDP.getText()));
-				egresado.setApellido(jTFPrimerApeDP.getText());
-				egresado.setCelular(JTFNumCelDP.getText());
-				egresado.setEmail(jTFEmailDP.getText());
-				egresado.setNombre(jTFNombreDP.getText());
-				egresado.setTelefono(JTFNumTelDP.getText());
-				egresado.setPrograma(prog);
-				egresado.setTipoDoc((String) CBTipoDocDP.getSelectedItem());
-
-				contEgresado.crearEgresado(egresado);
-				JOptionPane.showMessageDialog(null, "Egresado registrado con exito");
+			if(jTFNumDocDP.getText().length()<= 10 &&
+					JTFNumCelDP.getText().length() >= 10 &&
+					JTFNumTelDP.getText().length() <=7 ){
 				
-				jTFIdDelEgresado.setText(jTFNumDocDP.getText());
-				jTFIdDelEgresadoB.setText(jTFNumDocDP.getText());
+				co.edu.eam.disenosoft.egresado.persistencia.entidades.Egresado egresado = new co.edu.eam.disenosoft.egresado.persistencia.entidades.Egresado();
+
+				int idProg = Integer.parseInt(jTFIdProgramDP.getText());
+				Programa prog = contEgresado.buscarPrograma(idProg);
+				
+					egresado.setId(Integer.parseInt(jTFNumDocDP.getText()));
+					egresado.setApellido(jTFPrimerApeDP.getText());
+					egresado.setCelular(JTFNumCelDP.getText());
+					egresado.setEmail(jTFEmailDP.getText());
+					egresado.setNombre(jTFNombreDP.getText());
+					egresado.setTelefono(JTFNumTelDP.getText());
+					egresado.setPrograma(prog);
+					egresado.setTipoDoc((String) CBTipoDocDP.getSelectedItem());
+
+					contEgresado.crearEgresado(egresado);
+					JOptionPane.showMessageDialog(null, "Egresado registrado con exito");
+					
+					jTFIdDelEgresado.setText(jTFNumDocDP.getText());
+					jTFIdDelEgresadoB.setText(jTFNumDocDP.getText());
+				
+			}else{
+				JOptionPane.showMessageDialog(null, "Verifique que los campos Telefono,Celular y Numero del diploma no obtengan "
+						+"\n"+ "mas de 10 caracteres");
+			}
+			
 		
 		} catch (ExcepcionNegocio ex) {
 			JOptionPane.showMessageDialog(null, ex.getMessage());
@@ -1289,6 +1334,20 @@ public class Egresados extends javax.swing.JFrame {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+	
+	public void eventoNumero(java.awt.event.KeyEvent evt) {
+		char c = evt.getKeyChar();
+
+		 if(Character.isLetter(c)) {
+		//if (c < '0' || c > '9') {
+			getToolkit().beep();
+
+			evt.consume();
+
+			JOptionPane.showMessageDialog(null, "Ingresa Solo Numeros");
+
 		}
 	}
 
