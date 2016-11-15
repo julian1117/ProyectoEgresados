@@ -5,7 +5,11 @@ import java.util.List;
 import co.edu.eam.disenosoft.egresado.logica.excepcionNegocio.ExcepcionNegocio;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.AreaInteres;
 import co.edu.eam.disenosoft.egresado.persistencia.implementaciones.jpa.DAOAreaInteresJPA;
-
+/**
+ * 
+ * @author CAMILO
+ *
+ */
 public class BOAreaInteres {
 
 	private DAOAreaInteresJPA daoAreaInteres;

@@ -47,9 +47,6 @@ public class InformacionLaboral implements Serializable {
 	@Column(name="TIPO_EMPRESA")
 	private String tipoEmpresa;
 	
-	@Column(name="NOMBRE_EMPRESA")
-	private String nombreEmpresa;
-	
 	@Column(name="CARGO_EMPRESA")
 	private String cargoEmpresa;
 	
@@ -61,6 +58,11 @@ public class InformacionLaboral implements Serializable {
 	@Column(name="FECHA_SALIDA")
 	private Date fechaSalida;
 	
+
+	@JoinColumn(name="ID_EMPRESA")
+	private Empresa empresa;
+	
+	
 //	@ManyToOne
 //	@JoinColumn(name="ID_EMPRESA")
 //	private Empresa emp;
@@ -70,20 +72,24 @@ public class InformacionLaboral implements Serializable {
 	}
 
 	
-
 	public InformacionLaboral(int codEgresado, Egresado egresado, String situcionLaboral, String sectorLaboral,
-		String tipoEmpresa, String nombreEmpresa, String cargoEmpresa, Date fechaIngreso, Date fechaSalida) {
+		String tipoEmpresa, String cargoEmpresa, Date fechaIngreso, Date fechaSalida,
+		Empresa empresa) {
 	super();
-	this.codEgresado = egresado.getId();
+	//this.codEgresado = codEgresado;
 	this.egresado = egresado;
 	this.situcionLaboral = situcionLaboral;
 	this.sectorLaboral = sectorLaboral;
 	this.tipoEmpresa = tipoEmpresa;
-	this.nombreEmpresa = nombreEmpresa;
 	this.cargoEmpresa = cargoEmpresa;
 	this.fechaIngreso = fechaIngreso;
 	this.fechaSalida = fechaSalida;
+	this.empresa = empresa;
 }
+
+
+
+
 
 
 
@@ -158,19 +164,6 @@ public class InformacionLaboral implements Serializable {
 		this.tipoEmpresa = tipoEmpresa;
 	}
 
-	/**
-	 * @return the nombreEmpresa
-	 */
-	public String getNombreEmpresa() {
-		return nombreEmpresa;
-	}
-
-	/**
-	 * @param nombreEmpresa the nombreEmpresa to set
-	 */
-	public void setNombreEmpresa(String nombreEmpresa) {
-		this.nombreEmpresa = nombreEmpresa;
-	}
 
 	/**
 	 * @return the cargoEmpresa
@@ -213,6 +206,25 @@ public class InformacionLaboral implements Serializable {
 	public void setFechaSalida(Date fechaSalida) {
 		this.fechaSalida = fechaSalida;
 	}
+	
+	
+	/**
+	 * @return the empresa
+	 */
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
+
+	/**
+	 * @param empresa the empresa to set
+	 */
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
+	}
+
+
+
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()

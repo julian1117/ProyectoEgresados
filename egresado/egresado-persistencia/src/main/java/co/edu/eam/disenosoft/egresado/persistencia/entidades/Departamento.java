@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -29,15 +30,22 @@ public class Departamento implements Serializable {
 	@Column(name="NOMBRE_DEPARTAMENTO")
 	private String nomDepartamento;
 	
+	@JoinColumn(name="ID_PAIS")
+	private Pais pais;
+	
+	
 	public Departamento(){
 		
 	}
 
-	public Departamento(int idDepartamento, String nomDepartamento) {
+	
+	public Departamento(int idDepartamento, String nomDepartamento, Pais pais) {
 		super();
 		this.idDepartamento = idDepartamento;
 		this.nomDepartamento = nomDepartamento;
+		this.pais = pais;
 	}
+
 
 	/**
 	 * @return the idDepartamento
@@ -66,6 +74,21 @@ public class Departamento implements Serializable {
 	public void setNomDepartamento(String nomDepartamento) {
 		this.nomDepartamento = nomDepartamento;
 	}
+	
+	/**
+	 * @return the pais
+	 */
+	public Pais getPais() {
+		return pais;
+	}
+
+
+	/**
+	 * @param pais the pais to set
+	 */
+	public void setPais(Pais pais) {
+		this.pais = pais;
+	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
@@ -77,6 +100,7 @@ public class Departamento implements Serializable {
 		result = prime * result + idDepartamento;
 		return result;
 	}
+
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)

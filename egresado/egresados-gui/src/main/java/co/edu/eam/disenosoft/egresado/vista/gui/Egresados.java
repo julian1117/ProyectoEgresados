@@ -985,7 +985,7 @@ public class Egresados extends javax.swing.JFrame {
 				jCBLaboralAcOA.setSelectedItem(infoLab.getSitucionLaboral());
 				jCBSectorLaboral.setSelectedItem(infoLab.getSectorLaboral());
 				jCBTipoEmpresaOA.setSelectedItem(infoLab.getTipoEmpresa());
-				jTFNomEmpresaOA.setText(infoLab.getNombreEmpresa());
+				//jTFNomEmpresaOA.setText(infoLab.getNombreEmpresa());
 				jTFCargoEmpOA.setText(infoLab.getCargoEmpresa());
 				jCFechaingreso.setDate(infoLab.getFechaIngreso());
 				jCFechaSalida.setDate(infoLab.getFechaSalida());
@@ -1150,7 +1150,7 @@ public class Egresados extends javax.swing.JFrame {
 			infoLab.setEgresado(egre);
 			infoLab.setFechaIngreso(jCFechaingreso.getDate());
 			infoLab.setFechaSalida(jCFechaSalida.getDate());
-			infoLab.setNombreEmpresa(jTFNomEmpresaOA.getText());
+			//infoLab.setNombreEmpresa(jTFNomEmpresaOA.getText());
 			infoLab.setSectorLaboral((String) jCBSectorLaboral.getSelectedItem());
 			infoLab.setSitucionLaboral((String) jCBLaboralAcOA.getSelectedItem());
 			infoLab.setTipoEmpresa((String) jCBTipoEmpresaOA.getSelectedItem());
@@ -1176,7 +1176,7 @@ public class Egresados extends javax.swing.JFrame {
 			infoLab.setEgresado(egre);
 			infoLab.setFechaIngreso(jCFechaingreso.getDate());
 			infoLab.setFechaSalida(jCFechaSalida.getDate());
-			infoLab.setNombreEmpresa(jTFNomEmpresaOA.getText());
+		//	infoLab.setNombreEmpresa(jTFNomEmpresaOA.getText());
 			infoLab.setSectorLaboral((String) jCBSectorLaboral.getSelectedItem());
 			infoLab.setSitucionLaboral((String) jCBLaboralAcOA.getSelectedItem());
 			infoLab.setTipoEmpresa((String) jCBTipoEmpresaOA.getSelectedItem());
@@ -1339,6 +1339,12 @@ public class Egresados extends javax.swing.JFrame {
 		}
 	}
 
+	public void limpiarEgresado(){
+		jTFNombreDP.setText(null);
+		jTFPrimerApeDP.setText(null);
+		CBTipoDocDP.setSelectedIndex(1);
+		
+	}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CBTipoDocDP;
     private javax.swing.JButton JBTGuardarRegEdicacion;
