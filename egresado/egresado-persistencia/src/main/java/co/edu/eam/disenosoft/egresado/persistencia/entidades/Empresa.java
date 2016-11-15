@@ -41,6 +41,9 @@ public class Empresa  implements Serializable{
 	@JoinColumn(name="ID_CIUDAD",nullable=false)
 	private Ciudad idCiudad;
 	
+	@Column(name="NOMBRE_EMPRESA")
+	private String nombreEmpresa;
+	
 	@Column(name="RAZON_SOCIAL")
 	private String razonSocial;
 	
@@ -79,13 +82,16 @@ public class Empresa  implements Serializable{
 		
 	}
 
-	public Empresa(int id, SectorLaboral idSectorLaboral, Ciudad idCiudad, String razonSocial, String nit, String fax,
-			String telefono, String tipoEmpresa, String direccion, String pais,String ciudad, String departamento,
-			String sitioWeb) {
+	
+
+	public Empresa(int id, SectorLaboral idSectorLaboral, Ciudad idCiudad, String nombreEmpresa, String razonSocial,
+			String nit, String fax, String telefono, String tipoEmpresa, String direccion, String pais, String ciudad,
+			String departamento, String sitioWeb) {
 		super();
 		this.id = id;
 		this.idSectorLaboral = idSectorLaboral;
 		this.idCiudad = idCiudad;
+		this.nombreEmpresa = nombreEmpresa;
 		this.razonSocial = razonSocial;
 		this.nit = nit;
 		this.fax = fax;
@@ -97,6 +103,8 @@ public class Empresa  implements Serializable{
 		this.departamento = departamento;
 		this.sitioWeb = sitioWeb;
 	}
+
+
 
 	/**
 	 * @return the id
@@ -282,6 +290,24 @@ public class Empresa  implements Serializable{
 	}
 
 
+	/**
+	 * @return the nombreEmpresa
+	 */
+	public String getNombreEmpresa() {
+		return nombreEmpresa;
+	}
+
+
+
+	/**
+	 * @param nombreEmpresa the nombreEmpresa to set
+	 */
+	public void setNombreEmpresa(String nombreEmpresa) {
+		this.nombreEmpresa = nombreEmpresa;
+	}
+
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
@@ -308,7 +334,7 @@ public class Empresa  implements Serializable{
 	 */
 	@Override
 	public String toString() {
-		return "Empresa # " +id;
+		return nombreEmpresa;
 	}
 	
 	

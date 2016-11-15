@@ -57,6 +57,9 @@ public class OfertaLaboral implements Serializable {
 	@Column(name = "FECHA_OFERTA")
 	private Date fechaoferta;
 
+	@Column(name = "FECHA_CIERRE")
+	private Date fechaofertaCierre;
+	
 	@Column(name = "RESUMEN_OFERTA")
 	private String resumen;
 
@@ -81,10 +84,9 @@ public class OfertaLaboral implements Serializable {
 	}
 
 
-
 	public OfertaLaboral(int idOferta, Empresa idempresa, Ciudad idCiudad, AreaInteres idArea, String cargoOfrecer,
-			double salario, Date fechaoferta, String resumen, String requisitoOferta, String descripcionOferta,
-			boolean cerrarOferta) {
+			double salario, Date fechaoferta, Date fechaofertaCierre, String resumen, String requisitoOferta,
+			String descripcionOferta, boolean cerrarOferta) {
 		super();
 		this.idOferta = idOferta;
 		this.idempresa = idempresa;
@@ -93,11 +95,14 @@ public class OfertaLaboral implements Serializable {
 		this.cargoOfrecer = cargoOfrecer;
 		this.salario = salario;
 		this.fechaoferta = fechaoferta;
+		this.fechaofertaCierre = fechaofertaCierre;
 		this.resumen = resumen;
 		this.requisitoOferta = requisitoOferta;
 		this.descripcionOferta = descripcionOferta;
 		this.cerrarOferta = cerrarOferta;
 	}
+
+
 
 	/**
 	 * @return the idOferta
@@ -252,6 +257,27 @@ public class OfertaLaboral implements Serializable {
 	public void setCerrarOferta(boolean cerrarOferta) {
 		this.cerrarOferta = cerrarOferta;
 	}
+
+	
+	
+	
+	/**
+	 * @return the fechaofertaCierre
+	 */
+	public Date getFechaofertaCierre() {
+		return fechaofertaCierre;
+	}
+
+
+
+	/**
+	 * @param fechaofertaCierre the fechaofertaCierre to set
+	 */
+	public void setFechaofertaCierre(Date fechaofertaCierre) {
+		this.fechaofertaCierre = fechaofertaCierre;
+	}
+
+
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()

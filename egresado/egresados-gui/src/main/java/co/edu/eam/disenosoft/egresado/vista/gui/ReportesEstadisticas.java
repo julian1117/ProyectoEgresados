@@ -8,6 +8,7 @@ package co.edu.eam.disenosoft.egresado.vista.gui;
 import java.util.List;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -17,6 +18,8 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.AreaInteres;
+import co.edu.eam.disenosoft.egresado.persistencia.entidades.Ciudad;
+import co.edu.eam.disenosoft.egresado.persistencia.entidades.Empresa;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.InformacionLaboral;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.OfertaLaboral;
 import co.edu.eam.disenosoft.egresado.vista.controlador.ControladorReportes;
@@ -38,6 +41,8 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
 		this.setLocationRelativeTo(this);
 		reporteEgresadosOcupacion();
 		ofertasAbriertas();
+		llenarTablaEmpleadosEmpresa();
+		llenarTablaOfertasPrograma();
 	}
 
 	/**
@@ -237,6 +242,10 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
 
 	}
 
+	/**
+	 * Grafica de barras indicando la cnatidad de vacantes disponibles por
+	 * oferta laboral
+	 */
 	public void ofertasAbriertas() {
 		ChartPanel panel;
 		try {
@@ -247,18 +256,22 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
 			DefaultCategoryDataset ds = new DefaultCategoryDataset();
 
 			for (int i = 0; i < listaOfertaLab.size(); i++) {
-				areaAnterior = listaOfertaLab.get(i).getIdArea();
-				for (int j = 0; j < listaOfertaLab.size(); j++) {
-					if (listaOfertaLab.get(j).getIdArea() == areaAnterior) {
-						contador++;
+				// Validacion de oferta
+				if (listaOfertaLab.get(i).isCerrarOferta() == false) {
+					areaAnterior = listaOfertaLab.get(i).getIdArea();
+					for (int j = 0; j < listaOfertaLab.size(); j++) {
+						if (listaOfertaLab.get(j).getIdArea() == areaAnterior) {
+							contador++;
+						}
 					}
+					ds.addValue(contador, listaOfertaLab.get(i).getIdArea().getNombre(),
+							listaOfertaLab.get(i).getIdArea().getNombre());
+					contador = 0;
 				}
-				ds.addValue(contador, listaOfertaLab.get(i).getIdArea().getNombre(), listaOfertaLab.get(i).getIdArea().getNombre());
-				contador = 0;
 			}
 
-			JFreeChart jf = ChartFactory.createBarChart3D("Reporte de ofertas abiertas", "Nombre de las ofertas", "Numero de vacantes", ds,
-					PlotOrientation.VERTICAL, true, true, true);
+			JFreeChart jf = ChartFactory.createBarChart3D("Reporte de ofertas abiertas", "Nombre de las ofertas",
+					"Numero de vacantes", ds, PlotOrientation.VERTICAL, true, true, true);
 
 			panel = new ChartPanel(jf);
 			panel.setBounds(5, 10, 720, 320);
@@ -268,7 +281,51 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
 
+	/**
+	 * Genera tabla de los egresados de la eam que esten trabajando
+	 */
+	public void llenarTablaEmpleadosEmpresa() {
+		try {
+			DefaultTableModel df = (DefaultTableModel) jTEmpleadoEmpresa.getModel();
+			df.setRowCount(0);
+
+			List<InformacionLaboral> listaInfoLab = contReportes.listaInfomracionLaboral();
+
+			for (int i = 0; i < listaInfoLab.size(); i++) {
+
+				if (!listaInfoLab.get(i).getSitucionLaboral().equals("Desempleado")) {
+					df.addRow(new Object[] {
+							listaInfoLab.get(i).getEgresado().getNombre() + " "
+									+ listaInfoLab.get(i).getEgresado().getApellido(),
+							listaInfoLab.get(i).getEgresado().getPrograma().getNombrePrograma(),
+							listaInfoLab.get(i).getCargoEmpresa(), listaInfoLab.get(i).getFechaIngreso() });
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void llenarTablaOfertasPrograma() {
+		try {
+			DefaultTableModel df = (DefaultTableModel) jTreporteOfertaProgramas.getModel();
+			df.setRowCount(0);
+
+			List<OfertaLaboral> listOferta = contReportes.listaOfertaLab();
+
+			for (int i = 0; i < listOferta.size(); i++) {
+				if (listOferta.get(i).isCerrarOferta() == false) {
+					df.addRow(new Object[] { listOferta.get(i).getIdempresa().getNombreEmpresa(),
+							listOferta.get(i).getFechaoferta(),listOferta.get(i).getFechaofertaCierre(), listOferta.get(i).getCargoOfrecer(),
+							listOferta.get(i).getSalario(), listOferta.get(i).getResumen() });
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables

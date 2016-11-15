@@ -628,7 +628,7 @@ public class Egresados extends javax.swing.JFrame {
 
         jLabel20.setText("Tipo De Empresa");
 
-        jCBTipoEmpresaOA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione una opcion", "Privada", "Publica" }));
+        jCBTipoEmpresaOA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione una opcion", "Privada", "Publica", "No aplica" }));
 
         jLabel22.setText("Nombre De La Empresa");
 
@@ -1049,9 +1049,7 @@ public class Egresados extends javax.swing.JFrame {
 
 	private void jBSiguienteEgresadoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBSiguienteEgresadoActionPerformed
 		jTPEgresados.setSelectedIndex(1);
-		jTPEgresados.setEnabledAt(1, true);
-		jTPEgresados.setEnabledAt(0, false);
-		jTPEgresados.setEnabledAt(2, false);
+	
 	}// GEN-LAST:event_jBSiguienteEgresadoActionPerformed
 
 	private void jCBFacultadEDActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jCBFacultadEDActionPerformed
@@ -1060,16 +1058,12 @@ public class Egresados extends javax.swing.JFrame {
 
 	private void jBAnteriorEDActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBAnteriorEDActionPerformed
 		jTPEgresados.setSelectedIndex(0);
-		jTPEgresados.setEnabledAt(0, true);
-		jTPEgresados.setEnabledAt(1, false);
-		jTPEgresados.setEnabledAt(2, false);
+		
 	}// GEN-LAST:event_jBAnteriorEDActionPerformed
 
 	private void jBSigEDActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBSigEDActionPerformed
 		jTPEgresados.setSelectedIndex(2);
-		jTPEgresados.setEnabledAt(2, true);
-		jTPEgresados.setEnabledAt(0, false);
-		jTPEgresados.setEnabledAt(1, false);
+		
 	}// GEN-LAST:event_jBSigEDActionPerformed
 
 	private void jBEditarInformacionAcademicaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBEditarInformacionAcademicaActionPerformed
@@ -1145,9 +1139,6 @@ public class Egresados extends javax.swing.JFrame {
 
 	private void jBAnteriorOAActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBAnteriorOAActionPerformed
 		jTPEgresados.setSelectedIndex(1);
-		jTPEgresados.setEnabledAt(1, true);
-		jTPEgresados.setEnabledAt(2, false);
-		jTPEgresados.setEnabledAt(0, false);
 	}// GEN-LAST:event_jBAnteriorOAActionPerformed
 
 	private void jBRegistroInfoLaboralActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBRegistroInfoLaboralActionPerformed
@@ -1168,9 +1159,6 @@ public class Egresados extends javax.swing.JFrame {
 
 			JOptionPane.showMessageDialog(null, "Informacion laboral del egresado guardada con exito");
 
-			jTPEgresados.setEnabledAt(0, true);
-			jTPEgresados.setEnabledAt(1, false);
-			jTPEgresados.setEnabledAt(2, false);
 		} catch (ExcepcionNegocio ex) {
 			JOptionPane.showMessageDialog(null, ex.getMessage());
 		} catch (Exception e) {
