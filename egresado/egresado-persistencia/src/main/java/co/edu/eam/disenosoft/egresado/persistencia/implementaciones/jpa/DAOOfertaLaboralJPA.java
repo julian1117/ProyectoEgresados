@@ -10,7 +10,9 @@ import co.edu.eam.disenosoft.egresado.persistencia.definiciones.IOfertaLaboral;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.AreaInteres;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Ciudad;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Empresa;
+import co.edu.eam.disenosoft.egresado.persistencia.entidades.InformacionLaboral;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.OfertaLaboral;
+import co.edu.eam.disenosoft.egresado.persistencia.entidades.Programa;
 import co.edu.eam.disenosoft.egresado.persistencia.utilidades.AdministradorEntityManager;
 
 /**
@@ -108,6 +110,17 @@ public class DAOOfertaLaboralJPA implements IOfertaLaboral {
 			List<Empresa> listarCiudad = q.getResultList();
 			return listarCiudad;
 		}
+
+	/**
+	 * Lista de ofertas laborales por programas
+	 */
+	public List<OfertaLaboral> listaOfertaPrograma(Programa programa) throws Exception {
+		EntityManager em = AdministradorEntityManager.getEntityManager();
+		Query q = em.createNamedQuery(OfertaLaboral.LISTAR_OFERTA_POR_PROGRAMA);
+		q.setParameter(1,programa);
+		List<OfertaLaboral> listaPrograma = q.getResultList();
+		return listaPrograma;
+	}
 	
 
 }

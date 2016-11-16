@@ -7,6 +7,7 @@ import co.edu.eam.disenosoft.egresado.persistencia.entidades.AreaInteres;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Ciudad;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Empresa;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.OfertaLaboral;
+import co.edu.eam.disenosoft.egresado.persistencia.entidades.Programa;
 import co.edu.eam.disenosoft.egresado.persistencia.implementaciones.jpa.DAOOfertaLaboralJPA;
 
 /**
@@ -116,6 +117,16 @@ public class BOOfertaLaboral {
 	 */
 	public List<Empresa> listaEmpresa() throws Exception {
 		return daoOferta.listaEmpresa();
+	}
+	
+	/**
+	 * Lista de oferta laborales por programa academico
+	 * @param programa academico que recibe
+	 * @return lista de ofertas laborales
+	 * @throws Exception
+	 */
+	public List<OfertaLaboral> listaOfertaPrograma(Programa programa) throws Exception {
+		return daoOferta.listaOfertaPrograma(programa);
 	}
 
 	

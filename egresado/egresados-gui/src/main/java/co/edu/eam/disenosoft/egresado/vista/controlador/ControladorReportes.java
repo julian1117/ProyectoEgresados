@@ -68,4 +68,14 @@ public class ControladorReportes {
 	public List<InformacionLaboral> listaInfomracionLaboralPrograma(Programa programa) throws Exception {
 		return boInfoLab.listaInfomracionLaboralPrograma(programa);
 	}
+	
+	/**
+	 * Lista de oferta laborales por programa academico
+	 * @param programa academico que recibe
+	 * @return lista de ofertas laborales
+	 * @throws Exception
+	 */
+	public List<OfertaLaboral> listaOfertaPrograma(Programa programa) throws Exception {
+		return boOfertaLab.listaOfertaPrograma(programa);
+	}
 }

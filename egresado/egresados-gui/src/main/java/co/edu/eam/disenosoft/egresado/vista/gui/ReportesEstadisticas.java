@@ -45,6 +45,7 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
 		llenarTablaEmpleadosEmpresa();
 		llenarTablaOfertasPrograma();
 		listaPrgrama();
+		listaPrgramaAcademico();
 	}
 
 	/**
@@ -63,9 +64,10 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
         jTPReportesYEstadisticas2 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jPGraficaTipoOcupacion = new javax.swing.JPanel();
+        jCPrograma = new javax.swing.JComboBox();
         jPanel4 = new javax.swing.JPanel();
         jPofertaabierta = new javax.swing.JPanel();
-        jComboBox2 = new javax.swing.JComboBox();
+        jCProgramaAcademico = new javax.swing.JComboBox();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTEmpleadoEmpresa = new javax.swing.JTable();
@@ -73,7 +75,6 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTreporteOfertaProgramas = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
-        jCPrograma = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Ventana Reporte y Estaditicas");
@@ -90,18 +91,31 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
         );
         jPGraficaTipoOcupacionLayout.setVerticalGroup(
             jPGraficaTipoOcupacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGap(0, 414, Short.MAX_VALUE)
         );
+
+        jCPrograma.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCProgramaItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPGraficaTipoOcupacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jCPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPGraficaTipoOcupacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addComponent(jCPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPGraficaTipoOcupacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jTPReportesYEstadisticas2.addTab("Egresados por tipo de ocupacion", jPanel3);
@@ -112,28 +126,34 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
         jPofertaabierta.setLayout(jPofertaabiertaLayout);
         jPofertaabiertaLayout.setHorizontalGroup(
             jPofertaabiertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPofertaabiertaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(659, Short.MAX_VALUE))
+            .addGap(0, 781, Short.MAX_VALUE)
         );
         jPofertaabiertaLayout.setVerticalGroup(
             jPofertaabiertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPofertaabiertaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(409, Short.MAX_VALUE))
+            .addGap(0, 407, Short.MAX_VALUE)
         );
+
+        jCProgramaAcademico.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCProgramaAcademicoItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPofertaabierta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jCProgramaAcademico, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPofertaabierta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addComponent(jCProgramaAcademico, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPofertaabierta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jTPReportesYEstadisticas2.addTab("Numero de ofertas abiertas", jPanel4);
@@ -221,12 +241,6 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eam.jpg"))); // NOI18N
 
-        jCPrograma.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jCProgramaItemStateChanged(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -235,18 +249,12 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jTPReportesYEstadisticas2, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jCPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(41, 41, 41)
                 .addComponent(jTPReportesYEstadisticas2, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -324,6 +332,49 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jCProgramaItemStateChanged
+
+    private void jCProgramaAcademicoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCProgramaAcademicoItemStateChanged
+    	ChartPanel panel;
+		try {
+			
+			Programa programa = (Programa) jCProgramaAcademico.getSelectedItem();
+			
+			List<OfertaLaboral> listaOfertaLab = contReportes.listaOfertaPrograma(programa);
+
+			
+			
+			int contador = 0;
+			AreaInteres areaAnterior = null;
+			DefaultCategoryDataset ds = new DefaultCategoryDataset();
+
+			for (int i = 0; i < listaOfertaLab.size(); i++) {
+				jPofertaabierta.removeAll();
+				// Validacion de oferta
+				if (listaOfertaLab.get(i).isCerrarOferta() == false) {
+					areaAnterior = listaOfertaLab.get(i).getIdArea();
+					for (int j = 0; j < listaOfertaLab.size(); j++) {
+						if (listaOfertaLab.get(j).getIdArea() == areaAnterior) {
+							contador++;
+						}
+					}
+					ds.addValue(contador, listaOfertaLab.get(i).getIdArea().getNombre(),
+							listaOfertaLab.get(i).getIdArea().getNombre());
+					contador = 0;
+				}
+			}
+
+			JFreeChart jf = ChartFactory.createBarChart3D("Reporte de ofertas abiertas", "Nombre de las ofertas",
+					"Numero de vacantes", ds, PlotOrientation.VERTICAL, true, true, true);
+
+			panel = new ChartPanel(jf);
+			panel.setBounds(20, 20, 720, 320);
+
+			jPofertaabierta.add(panel);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}            
+    }//GEN-LAST:event_jCProgramaAcademicoItemStateChanged
 
 	public void reporteEgresadosOcupacion() {
 		ChartPanel panel;
@@ -410,7 +461,7 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
 					"Numero de vacantes", ds, PlotOrientation.VERTICAL, true, true, true);
 
 			panel = new ChartPanel(jf);
-			panel.setBounds(5, 10, 720, 320);
+			panel.setBounds(20, 20, 720, 320);
 
 			jPofertaabierta.add(panel);
 
@@ -479,9 +530,23 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
 
 	}
 
+	public void listaPrgramaAcademico() {
+		
+		try {
+			List<Programa> listPrograma = contReportes.listaPrograma();
+			jCProgramaAcademico.addItem((String)"Seleccione un programa");
+			for (Programa programa : listPrograma) {
+				jCProgramaAcademico.addItem(programa);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox jCPrograma;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox jCProgramaAcademico;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPGraficaTipoOcupacion;
     private javax.swing.JPanel jPanel3;

@@ -16,7 +16,8 @@ import javax.persistence.Table;
 @NamedQueries({
 	@NamedQuery(name = OfertaLaboral.LISTAR_AREA_INTERES,query = "SELECT id FROM OfertaLaboral o JOIN o.idArea id WHERE o.idOferta =?1"),
 	@NamedQuery(name = OfertaLaboral.LISTAR_CIUDADA_OFERTA, query = "SELECT idC FROM OfertaLaboral o JOIN o.idCiudad idC WHERE o.idOferta =?1"),
-	@NamedQuery(name = OfertaLaboral.LISTAR_OFERTA, query = "SELECT o FROM OfertaLaboral o")
+	@NamedQuery(name = OfertaLaboral.LISTAR_OFERTA, query = "SELECT o FROM OfertaLaboral o"),
+	@NamedQuery(name = OfertaLaboral.LISTAR_OFERTA_POR_PROGRAMA, query = "SELECT o FROM OfertaLaboral o WHERE o.programa=?1")
 })
 
 @Entity
@@ -31,6 +32,8 @@ public class OfertaLaboral implements Serializable {
 	public static final String LISTAR_CIUDADA_OFERTA = "OfertaLaboral.buscarCiudades";
 	
 	public static final String LISTAR_OFERTA = "OfertaLaboral.listaOferta";
+	
+	public static final String LISTAR_OFERTA_POR_PROGRAMA = "OfertaLaboral.listaOfertaPrograma";
 	
 	@Id
 	@Column(name = "ID_OFERTA")
