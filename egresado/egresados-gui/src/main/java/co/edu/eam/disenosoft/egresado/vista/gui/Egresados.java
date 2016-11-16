@@ -1118,7 +1118,7 @@ public class Egresados extends javax.swing.JFrame {
 			infoAc.setProgramaAcademico((String) jCBProgramaED.getSelectedItem());
 
 			contEgresado.crearInformacionAcademica(infoAc);
-
+			limpiarEducacion();
 			JOptionPane.showMessageDialog(null, "Informacion academica del egresado creada con exito");
 
 		} catch (ExcepcionNegocio ex) {
@@ -1139,6 +1139,7 @@ public class Egresados extends javax.swing.JFrame {
 			jDCFechaGrado.setDate(infoAc.getFechaGrado());
 			jTFNumeroDiplomaED.setText(infoAc.getNumeroDiploma());
 			jCBNivelAlcED.setSelectedItem(infoAc.getMaximoNivelAcademico());
+			
 		} else {
 			JOptionPane.showMessageDialog(null, "La informacion academica del egresado no existe");
 		}
@@ -1203,18 +1204,29 @@ public class Egresados extends javax.swing.JFrame {
 	}
 
 	private void jBBUscarDatosEgresadoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBBUscarDatosEgresadoActionPerformed
-		int idEgresado = Integer.parseInt(jTFNumDocDP.getText());
-		Egresado egres = contEgresado.buscarEgresado(idEgresado);
+	try {
+		
+		if(!jTFNumDocDP.getText().isEmpty()){
+			int idEgresado = Integer.parseInt(jTFNumDocDP.getText());
+			Egresado egres = contEgresado.buscarEgresado(idEgresado);
 
-		jTFNombreDP.setText(egres.getNombre());
-		jTFPrimerApeDP.setText(egres.getApellido());
-		CBTipoDocDP.setSelectedItem(egres.getTipoDoc());
-		jTFNumDocDP.setText(Integer.toString(egres.getId()));
-		jTFEmailDP.setText(egres.getEmail());
-		JTFNumTelDP.setText(egres.getTelefono());
-		JTFNumCelDP.setText(egres.getCelular());
-		jComboProg.setSelectedItem(egres.getPrograma());
-
+			jTFNombreDP.setText(egres.getNombre());
+			jTFPrimerApeDP.setText(egres.getApellido());
+			CBTipoDocDP.setSelectedItem(egres.getTipoDoc());
+			jTFNumDocDP.setText(Integer.toString(egres.getId()));
+			jTFEmailDP.setText(egres.getEmail());
+			JTFNumTelDP.setText(egres.getTelefono());
+			JTFNumCelDP.setText(egres.getCelular());
+			jComboProg.setSelectedItem(egres.getPrograma());
+		}else{
+			JOptionPane.showMessageDialog(null, "Por favor verifique que el campo 'Numero de documento'"
+					+"\n" + "Se encuentre lleno");
+		}
+			
+		
+	} catch (Exception e) {
+		// TODO: handle exception
+	}
 	}// GEN-LAST:event_jBBUscarDatosEgresadoActionPerformed
 
 	private void jBGuardarDatosEgresadoActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1238,6 +1250,7 @@ public class Egresados extends javax.swing.JFrame {
 					egresado.setTipoDoc((String) CBTipoDocDP.getSelectedItem());
 
 					contEgresado.crearEgresado(egresado);
+					limpiarCamposDatosPer();
 					JOptionPane.showMessageDialog(null, "Egresado registrado con exito");
 					
 					jTFIdDelEgresado.setText(jTFNumDocDP.getText());
@@ -1294,10 +1307,14 @@ public class Egresados extends javax.swing.JFrame {
 		}
 	}
 
+	/**
+	 * llena el combo de la informacion laboral con los secores laborales
+	 * creados en el sistema
+	 */
 	public void llenarComboInfoLab() {
 		try {
 			jCBSectorLaboral.removeAllItems();
-			jCBSectorLaboral.addItem("Selecciones un programa");
+			jCBSectorLaboral.addItem("Selecciones un sector laboral");
 			List<SectorLaboral> lisSec = contEgresado.listaLaboral();
 
 			for (SectorLaboral sect : lisSec) {
@@ -1309,6 +1326,9 @@ public class Egresados extends javax.swing.JFrame {
 		}
 	}
 
+	/**
+	 * llena la tabla con los datos de la oferta a listar
+	 */
 	public void llenarTabla() {
 		try {
 			DefaultTableModel df = (DefaultTableModel) jTOfertaLab.getModel();
@@ -1334,19 +1354,23 @@ public class Egresados extends javax.swing.JFrame {
 		}
 	}
 	
+	/**
+	 * evento para validar los campos numericos
+	 * @param evt objeto  del eveno
+	 */
 	public void eventoNumero(java.awt.event.KeyEvent evt) {
 		char c = evt.getKeyChar();
-
 		 if(Character.isLetter(c)) {
 		//if (c < '0' || c > '9') {
 			getToolkit().beep();
-
 			evt.consume();
-
 			JOptionPane.showMessageDialog(null, "Ingresa Solo Numeros");
 		}
 	}
 
+	/**
+	 * llena el combo cargando los programas que han sido registrados
+	 */
 	public void llenarComboPrograma(){
 		try {
 			List<Programa> listaPrograma = contEgresado.listaPrograma();
@@ -1360,12 +1384,6 @@ public class Egresados extends javax.swing.JFrame {
 		}
 	}
 	
-	public void limpiarEgresado(){
-		jTFNombreDP.setText(null);
-		jTFPrimerApeDP.setText(null);
-		CBTipoDocDP.setSelectedIndex(1);
-		
-	}
 	
 	/**
 	 * lista una empresa que ha sido buscada 
@@ -1382,6 +1400,29 @@ public class Egresados extends javax.swing.JFrame {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+	}
+	
+	/**
+	 * limpia los campos de los datos del empleado
+	 */
+	public void limpiarCamposDatosPer(){
+		jTFNombreDP.setText(null);
+		jTFPrimerApeDP.setText(null);
+		CBTipoDocDP.setSelectedIndex(0);
+		jTFNumDocDP.setText(null);
+		jTFEmailDP.setText(null);
+		JTFNumTelDP.setText(null);
+		JTFNumCelDP.setText(null);
+		jComboProg.setSelectedIndex(0);
+	}
+	
+	public void limpiarEducacion(){
+		jCBFacultadED.setSelectedItem(null);
+		jCBProgramaED.setSelectedItem(null);
+		jTAAreasED.setText(null);
+		jDCFechaGrado.setDate(null);
+		jTFNumeroDiplomaED.setText(null);
+		jCBNivelAlcED.setSelectedIndex(0);
 	}
 	
 	
