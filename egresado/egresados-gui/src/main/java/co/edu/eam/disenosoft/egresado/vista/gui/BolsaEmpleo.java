@@ -392,11 +392,10 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 	private void jBRegistroActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBRegistroActionPerformed
 		try {
 			OfertaLaboral ofertaLa = new OfertaLaboral();
-			String area = (String) jCBAreaConocimiento.getSelectedItem();
-			String[] datos = area.split("-");
-			AreaInteres idArea = conBolsa.buscarIdArea(Integer.parseInt(datos[0]));
-
-			ofertaLa.setIdArea(idArea);
+			AreaInteres area = (AreaInteres) jCBAreaConocimiento.getSelectedItem();
+			AreaInteres ar = conBolsa.buscarIdArea(area.getIdArea());
+			ofertaLa.setIdArea(ar);
+			
 			ofertaLa.setCargoOfrecer(jTFCargo.getText());
 			ofertaLa.setSalario((Double) jSSalario.getValue());
 
