@@ -444,13 +444,12 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 	private void jBCerrarOfertaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBCerrarOfertaActionPerformed
 
 		try {
-
+if(jCheckBox1.isEnabled()== true){
+	
+}
 			OfertaLaboral ofertaLa = new OfertaLaboral();
-			String area = (String) jCBAreaConocimiento.getSelectedItem();
-			String[] datos = area.split("-");
-			AreaInteres idArea = conBolsa.buscarIdArea(Integer.parseInt(datos[0]));
-
-			ofertaLa.setIdArea(idArea);
+			AreaInteres area = (AreaInteres) jCBAreaConocimiento.getSelectedItem();	
+			ofertaLa.setIdArea(area);
 			ofertaLa.setCargoOfrecer(jTFCargo.getText());
 			ofertaLa.setSalario((Double) jSSalario.getValue());
 
@@ -507,12 +506,9 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 	public void llenarComboArea() {
 		try {
 			jCBAreaConocimiento.removeAllItems();
-			jCBAreaConocimiento.addItem("Seleccione una area..,");
 			List<AreaInteres> lista = conBolsa.listarAreas();
-
 			for (int i = 0; i < lista.size(); i++) {
-
-				jCBAreaConocimiento.addItem(lista.get(i).getIdArea() + "-" + lista.get(i).getNombre().toString());
+				jCBAreaConocimiento.addItem(lista.get(i));
 
 			}
 		} catch (Exception e) {
@@ -685,7 +681,7 @@ public class BolsaEmpleo extends javax.swing.JFrame{
     private javax.swing.JButton jBBuscar;
     private javax.swing.JButton jBCerrarOferta;
     private javax.swing.JButton jBRegistro;
-    private javax.swing.JComboBox<String> jCBAreaConocimiento;
+    private javax.swing.JComboBox jCBAreaConocimiento;
     private javax.swing.JComboBox<String> jCBCiudadOferta;
     private javax.swing.JComboBox jCBIdEmpresa;
     private javax.swing.JComboBox jCBPrograma;
