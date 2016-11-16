@@ -356,11 +356,13 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 				jSSalario.setValue(oferta.getSalario());
 				jCalendarOferta.setDate(oferta.getFechaoferta());
 				jCalendarCerrar.setDate(oferta.getFechaofertaCierre());
-				jTAResumen.setText(oferta.getResumen());				
-				jCBIdEmpresa.setSelectedItem(Integer.toString(oferta.getIdempresa().getId()));
+				jTAResumen.setText(oferta.getResumen());	
+				Empresa empresa = conBolsa.buscarEmpresa(oferta.getIdempresa().getId());
+				jCBIdEmpresa.setSelectedItem(empresa);
 				jTARequerimientosOferta.setText(oferta.getRequisitoOferta());
 				jTADescripcionOferta.setText(oferta.getDescripcionOferta());
 				jCBPrograma.setSelectedItem(oferta.getPrograma());
+				
 				
 				boolean ch = oferta.isCerrarOferta();
 				//
