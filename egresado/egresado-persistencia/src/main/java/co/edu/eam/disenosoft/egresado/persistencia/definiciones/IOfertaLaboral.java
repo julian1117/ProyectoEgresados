@@ -6,6 +6,7 @@ import co.edu.eam.disenosoft.egresado.persistencia.entidades.AreaInteres;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Ciudad;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Empresa;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.OfertaLaboral;
+import co.edu.eam.disenosoft.egresado.persistencia.entidades.Programa;
 /**
  * clase donde se declaran los metodos para una oferta laboral
  * @author laura posada
@@ -78,4 +79,11 @@ public interface IOfertaLaboral {
 	 * @throws Exception
 	 */
 	public List<Empresa> listaEmpresa() throws Exception;
+	
+	/**
+	 * Lista de ofertas por programa academico
+	 * @return lista de programas
+	 * @throws Exception
+	 */
+	public List<OfertaLaboral> listaOfertaPrograma(Programa programa) throws Exception;
 }
