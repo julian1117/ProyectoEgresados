@@ -4,10 +4,22 @@ import co.edu.eam.disenosoft.egresado.logica.excepcionNegocio.ExcepcionNegocio;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Facultad;
 import co.edu.eam.disenosoft.egresado.persistencia.implementaciones.jpa.DAOFacultadJPA;
 
+/**
+ * Clase encarga de hacer las validaciones necesarias para el correcto
+ * funcionamiento de la aplicacion durante la ejecucion de los metodos 
+ * @author laura posada
+ *
+ */
 public class BOFacultad {
 
+	/**
+	 * se llama el dao de la facultad
+	 */
 	private DAOFacultadJPA daoFacultad;
 	
+	/**
+	 * constructor de la clase
+	 */
 	public BOFacultad(){
 		daoFacultad = new DAOFacultadJPA();
 	}

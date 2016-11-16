@@ -9,10 +9,22 @@ import co.edu.eam.disenosoft.egresado.persistencia.entidades.Empresa;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.OfertaLaboral;
 import co.edu.eam.disenosoft.egresado.persistencia.implementaciones.jpa.DAOOfertaLaboralJPA;
 
+/**
+ * Clase encarga de hacer las validaciones necesarias para el correcto
+ * funcionamiento de la aplicacion durante la ejecucion de los metodos 
+ * @author laura posada
+ *
+ */
 public class BOOfertaLaboral {
 
+	/**
+	 * se llama el dao de la oferta
+	 */
 	private DAOOfertaLaboralJPA daoOferta;
 
+	/**
+	 * constructor de la clase
+	 */
 	public BOOfertaLaboral() {
 		daoOferta = new DAOOfertaLaboralJPA();
 	}

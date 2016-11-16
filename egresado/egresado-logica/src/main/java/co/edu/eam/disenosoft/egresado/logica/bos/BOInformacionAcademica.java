@@ -26,9 +26,10 @@ public class BOInformacionAcademica {
 	}
 
 	/**
-	 * 
-	 * @param informacionAc
-	 * @throws Exception
+	 * crea una informacion academica
+	 * @param informacionAc objeto por el cual se va a crear la inf academica
+	 * @throws Exception informando que la informacion academica a crear 
+	 * ya se encuentra registrada
 	 */
 	public void crearInformacionAcademica(InformacionAcademica informacionAc) throws Exception {
 		InformacionAcademica info = daoInfoAc.buscarInformacionAcademica(informacionAc.getEgresado().getId());
@@ -41,9 +42,9 @@ public class BOInformacionAcademica {
 	}
 
 	/**
-	 * 
-	 * @param informacionAcademica
-	 * @throws Exception
+	 * edita una inf academica ya registrada
+	 * @param informacionAcademica objeto por el cual se va a editar la inf academica
+	 * @throws Exception que la inf academica a editar no se encuentre registrada
 	 */
 	public void editarInformacionAcademica(InformacionAcademica informacionAcademica) throws Exception {
 		InformacionAcademica info = daoInfoAc.buscarInformacionAcademica(informacionAcademica.getEgresado().getId());
@@ -57,9 +58,9 @@ public class BOInformacionAcademica {
 	
 
 	/**
-	 * 
-	 * @param egre
-	 * @return
+	 * busca una inf academica
+	 * @param egre objetoo por el cual se va a  buscar la inf academica 
+	 * @return la busqueda de la informacion academica 
 	 */
 	public InformacionAcademica buscarInformacionAcademica(int egre) {
 		return daoInfoAc.buscarInformacionAcademica(egre);
