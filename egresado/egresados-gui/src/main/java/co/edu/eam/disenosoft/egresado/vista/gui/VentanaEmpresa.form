@@ -361,12 +361,8 @@
                     <Component class="javax.swing.JComboBox" name="jCBPais">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="5">
+                          <StringArray count="1">
                             <StringItem index="0" value="Seleccione pais"/>
-                            <StringItem index="1" value="Colombia"/>
-                            <StringItem index="2" value="Brasil"/>
-                            <StringItem index="3" value="Mexico"/>
-                            <StringItem index="4" value="Panama"/>
                           </StringArray>
                         </Property>
                       </Properties>

@@ -58,7 +58,7 @@ public class InformacionLaboral implements Serializable {
 	@Column(name="FECHA_SALIDA")
 	private Date fechaSalida;
 	
-
+	@ManyToOne
 	@JoinColumn(name="ID_EMPRESA")
 	private Empresa empresa;
 	

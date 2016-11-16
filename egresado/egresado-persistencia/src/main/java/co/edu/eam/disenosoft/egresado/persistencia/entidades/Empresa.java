@@ -65,8 +65,6 @@ public class Empresa  implements Serializable{
 	@Column(name="PAIS")
 	private String pais;
 	
-	@Column(name="CIUDAD")
-	private String ciudad;
 	
 	@Column(name="DEPARTAMENTO")
 	private String departamento;
@@ -85,8 +83,7 @@ public class Empresa  implements Serializable{
 	
 
 	public Empresa(int id, SectorLaboral idSectorLaboral, Ciudad idCiudad, String nombreEmpresa, String razonSocial,
-			String nit, String fax, String telefono, String tipoEmpresa, String direccion, String pais, String ciudad,
-			String departamento, String sitioWeb) {
+			String nit, String fax, String telefono, String tipoEmpresa, String direccion, String pais, String departamento, String sitioWeb) {
 		super();
 		this.id = id;
 		this.idSectorLaboral = idSectorLaboral;
@@ -99,7 +96,6 @@ public class Empresa  implements Serializable{
 		this.tipoEmpresa = tipoEmpresa;
 		this.direccion = direccion;
 		this.pais = pais;
-		this.ciudad = ciudad;
 		this.departamento = departamento;
 		this.sitioWeb = sitioWeb;
 	}
@@ -247,19 +243,6 @@ public class Empresa  implements Serializable{
 		this.pais = pais;
 	}
 
-	/**
-	 * @return the ciudad
-	 */
-	public String getCiudad() {
-		return ciudad;
-	}
-
-	/**
-	 * @param ciudad the ciudad to set
-	 */
-	public void setCiudad(String ciudad) {
-		this.ciudad = ciudad;
-	}
 
 	/**
 	 * @return the departamento

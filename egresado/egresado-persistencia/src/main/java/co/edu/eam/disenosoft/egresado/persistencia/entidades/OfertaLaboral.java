@@ -72,6 +72,7 @@ public class OfertaLaboral implements Serializable {
 	@Column(name = "CERRAR_OFERTA")
 	private boolean cerrarOferta;
 
+	@ManyToOne
 	@JoinColumn(name="ID_PROGRAMA")
 	private Programa programa;
 	

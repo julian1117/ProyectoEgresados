@@ -15,6 +15,7 @@ import co.edu.eam.disenosoft.egresado.persistencia.entidades.Contacto;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Departamento;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Empresa;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.OfertaLaboral;
+import co.edu.eam.disenosoft.egresado.persistencia.entidades.Pais;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.SectorLaboral;
 import co.edu.eam.disenosoft.egresado.persistencia.enumeraciones.TipoEmpresa;
 import co.edu.eam.disenosoft.egresado.vista.controlador.ControladorAdministrarEmpresa;
@@ -38,6 +39,7 @@ public class VentanaEmpresa extends javax.swing.JFrame {
 		llenarComboInfoLab();
 		listarCiudad();
 		listarDepartamento();
+		listarPais();
 	}
 
 	/**
@@ -163,7 +165,7 @@ public class VentanaEmpresa extends javax.swing.JFrame {
 
         jLabel10.setText("Direccion");
 
-        jCBPais.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione pais", "Colombia", "Brasil", "Mexico", "Panama" }));
+        jCBPais.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione pais" }));
 
         jCBCiudad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione ciudad", " " }));
 
@@ -668,27 +670,29 @@ public class VentanaEmpresa extends javax.swing.JFrame {
 
 	private void jBEditarEmpresaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBEditarEmpresaActionPerformed
 		try {
-			Empresa empresa = new Empresa();
+			
 			int idEmpresa = Integer.parseInt(JOptionPane.showInputDialog("ingrese el ID de la empresa a buscar"));
+			Empresa empresa = contEmpresa.buscarEmpresa(idEmpresa);
+			
+			
+			Ciudad ciud= (Ciudad)jCBCiudad.getSelectedItem();
+			
+			empresa.setIdCiudad(ciud);
 
-			empresa.setId(idEmpresa);
-
-			String ciud = (String) jCBCiudad.getSelectedItem();
-			String[] datos = ciud.split("-");
-			Ciudad ciudadBus = contEmpresa.buscarCiudad(Integer.parseInt(datos[0]));
-			empresa.setIdCiudad(ciudadBus);
-
-			empresa.setDepartamento((String) jCBDepartamento.getSelectedItem());
-
-			String sect = (String) jCBSeptorlaboral.getSelectedItem();
-			String[] datosC = sect.split("-");
-			SectorLaboral sectorLaboral = contEmpresa.buscarSectorLaboral(Integer.parseInt(datosC[0]));
-			empresa.setIdSectorLaboral(sectorLaboral);
+			Departamento departamento = (Departamento) jCBDepartamento.getSelectedItem();
+			empresa.setDepartamento(departamento.getNomDepartamento());
+			
+			Pais pais = (Pais) jCBPais.getSelectedItem();
+			empresa.setPais(pais.getNomPais());
+			
+			SectorLaboral sectorLab = (SectorLaboral) jCBSeptorlaboral.getSelectedItem();			
+			empresa.setIdSectorLaboral(sectorLab);
+			
 			empresa.setNombreEmpresa(jTFNombreEmpresa.getText());
 			empresa.setDireccion(jTFDirectorDE.getText());
 			empresa.setFax(jTFFaxDE.getText());
 			empresa.setNit(jTFNitDE.getText());
-			empresa.setPais((String) jCBPais.getSelectedItem());
+			
 			empresa.setRazonSocial(jTFRazonSocialDE.getText());
 			empresa.setSitioWeb(jTFDireccionWebDE.getText());
 			empresa.setTelefono(jTFTelefonoDE.getText());
@@ -697,6 +701,7 @@ public class VentanaEmpresa extends javax.swing.JFrame {
 			contEmpresa.editarEmpresa(empresa);
 
 			JOptionPane.showMessageDialog(null, "Empresa editada con exito");
+			
 		} catch (ExcepcionNegocio ex) {
 			JOptionPane.showMessageDialog(null, ex.getMessage());
 		} catch (Exception e) {
@@ -710,24 +715,24 @@ public class VentanaEmpresa extends javax.swing.JFrame {
 					&& jTFTelefonoDE.getText().length() <= 10) {
 				Empresa empresa = new Empresa();
 
-				String ciud = (String) jCBCiudad.getSelectedItem();
-				String[] datos = ciud.split("-");
-				Ciudad ciudadBus = contEmpresa.buscarCiudad(Integer.parseInt(datos[0]));
-				empresa.setIdCiudad(ciudadBus);
-				empresa.setCiudad(ciudadBus.getNombre());
-				// String dep = (String) jCBDepartamento.getSelectedItem();
-				// String[] datosB = dep.split("-");
-				empresa.setDepartamento((String) jCBDepartamento.getSelectedItem());
+				Ciudad ciud= (Ciudad)jCBCiudad.getSelectedItem();
+				
+				empresa.setIdCiudad(ciud);
 
-				String sect = (String) jCBSeptorlaboral.getSelectedItem();
-				String[] datosC = sect.split("-");
-				SectorLaboral sectorLaboral = contEmpresa.buscarSectorLaboral(Integer.parseInt(datosC[0]));
-				empresa.setIdSectorLaboral(sectorLaboral);
+				Departamento departamento = (Departamento) jCBDepartamento.getSelectedItem();
+				empresa.setDepartamento(departamento.getNomDepartamento());
+				
+				Pais pais = (Pais) jCBPais.getSelectedItem();
+				empresa.setPais(pais.getNomPais());
+				
+				SectorLaboral sectorLab = (SectorLaboral) jCBSeptorlaboral.getSelectedItem();			
+				empresa.setIdSectorLaboral(sectorLab);
+				
 				empresa.setNombreEmpresa(jTFNombreEmpresa.getText());
 				empresa.setDireccion(jTFDirectorDE.getText());
 				empresa.setFax(jTFFaxDE.getText());
 				empresa.setNit(jTFNitDE.getText());
-				empresa.setPais((String) jCBPais.getSelectedItem());
+				
 				empresa.setRazonSocial(jTFRazonSocialDE.getText());
 				empresa.setSitioWeb(jTFDireccionWebDE.getText());
 				empresa.setTelefono(jTFTelefonoDE.getText());
@@ -754,20 +759,26 @@ public class VentanaEmpresa extends javax.swing.JFrame {
 			Empresa empresa = contEmpresa.buscarEmpresa(idEmpresa);
 
 			if (empresa != null) {
-				int idCiudad = empresa.getIdCiudad().getIdCiudad();
+				int idCiudad = empresa.getIdCiudad().getIdCiudad();				
 				Ciudad busCiudad = contEmpresa.buscarCiudad(idCiudad);
-				jCBCiudad.setSelectedItem(busCiudad.getIdCiudad() + "-" + busCiudad.getNombre());
+				jCBCiudad.setSelectedItem(busCiudad);
+				
+				int dep = empresa.getIdCiudad().getDepto().getIdDepartamento();
+				Departamento departamento= contEmpresa.buscarDepartamento(dep);
+				jCBDepartamento.setSelectedItem(departamento);
 
-				jCBDepartamento.setSelectedItem(empresa.getDepartamento());
-
+				int idPais = empresa.getIdCiudad().getDepto().getPais().getIdPais();
+				Pais pais = contEmpresa.buscarPais(idPais);
+				jCBPais.setSelectedItem(pais);
+				
 				int idSector = empresa.getIdSectorLaboral().getIdSectoLaboral();
 				SectorLaboral sect = contEmpresa.buscarSectorLaboral(idSector);
-				jCBSeptorlaboral.setSelectedItem(sect.getIdSectoLaboral() + "-" + sect.getNombreSector());
+				jCBSeptorlaboral.setSelectedItem(sect);
+				
 				jTFNombreEmpresa.setText(empresa.getNombreEmpresa());
 				jTFDirectorDE.setText(empresa.getDireccion());
 				jTFFaxDE.setText(empresa.getFax());
-				jTFNitDE.setText(empresa.getNit());
-				jCBPais.setSelectedItem(empresa.getPais());
+				jTFNitDE.setText(empresa.getNit());				
 				jTFRazonSocialDE.setText(empresa.getRazonSocial());
 				jTFDireccionWebDE.setText(empresa.getSitioWeb());
 				jTFTelefonoDE.setText(empresa.getTelefono());
@@ -802,11 +813,9 @@ public class VentanaEmpresa extends javax.swing.JFrame {
 	public void llenarComboInfoLab() {
 		try {
 			jCBSeptorlaboral.removeAllItems();
-			jCBSeptorlaboral.addItem("Selecciones un programa");
 			List<SectorLaboral> lisSec = contEmpresa.listaLaboral();
-
 			for (SectorLaboral sect : lisSec) {
-				jCBSeptorlaboral.addItem(sect.getIdSectoLaboral() + "-" + sect.getNombreSector());
+				jCBSeptorlaboral.addItem(sect);
 			}
 
 		} catch (Exception e) {
@@ -826,7 +835,7 @@ public class VentanaEmpresa extends javax.swing.JFrame {
 		try {
 			List<Ciudad> ciu = contEmpresa.listarCiudad();
 			for (int i = 0; i < ciu.size(); i++) {
-				jCBCiudad.addItem(ciu.get(i).getIdCiudad() + "-" + ciu.get(i).getNombre());
+				jCBCiudad.addItem(ciu.get(i));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -834,12 +843,25 @@ public class VentanaEmpresa extends javax.swing.JFrame {
 
 	}
 
+	public void listarPais() {
+		jCBPais.removeAllItems();
+		try {
+			List<Pais> pais = contEmpresa.listaPais();
+			for (int i = 0; i < pais.size(); i++) {
+				jCBPais.addItem(pais.get(i));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
 	public void listarDepartamento() {
 		jCBDepartamento.removeAllItems();
 		try {
 			List<Departamento> ciu = contEmpresa.listarDepartamento();
 			for (int i = 0; i < ciu.size(); i++) {
-				jCBDepartamento.addItem(ciu.get(i).getNomDepartamento());
+				jCBDepartamento.addItem(ciu.get(i));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -874,10 +896,10 @@ public class VentanaEmpresa extends javax.swing.JFrame {
     private javax.swing.JButton jBGuardarDCEmpresa;
     private javax.swing.JButton jBGuardarEmpresa;
     private javax.swing.JButton jBSiguienteDE;
-    private javax.swing.JComboBox<String> jCBCiudad;
-    private javax.swing.JComboBox<String> jCBDepartamento;
-    private javax.swing.JComboBox<String> jCBPais;
-    private javax.swing.JComboBox<String> jCBSeptorlaboral;
+    private javax.swing.JComboBox<Ciudad> jCBCiudad;
+    private javax.swing.JComboBox<Departamento> jCBDepartamento;
+    private javax.swing.JComboBox<Pais> jCBPais;
+    private javax.swing.JComboBox<SectorLaboral> jCBSeptorlaboral;
     private javax.swing.JComboBox<String> jCBTipoEmpresaDE;
     private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel1;

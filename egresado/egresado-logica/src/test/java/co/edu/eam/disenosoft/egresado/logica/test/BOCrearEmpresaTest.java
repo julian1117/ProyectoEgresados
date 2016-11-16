@@ -56,7 +56,6 @@ public class BOCrearEmpresaTest {
 			empresa.setIdSectorLaboral(sector);
 
 			empresa.setIdCiudad(ciudad);
-			empresa.setCiudad(ciudad.getNombre());
 
 			boEmpresa.crearEmpresa(empresa);
 			Empresa em = boEmpresa.buscarEmpresa(empresa.getId());

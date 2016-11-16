@@ -7,11 +7,13 @@ import co.edu.eam.disenosoft.egresado.logica.bos.BOContacto;
 import co.edu.eam.disenosoft.egresado.logica.bos.BODepartamento;
 import co.edu.eam.disenosoft.egresado.logica.bos.BOEmpresa;
 import co.edu.eam.disenosoft.egresado.logica.bos.BOInformacionLaboral;
+import co.edu.eam.disenosoft.egresado.logica.bos.BOPais;
 import co.edu.eam.disenosoft.egresado.logica.bos.BOSectorLaboral;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Ciudad;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Contacto;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Departamento;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Empresa;
+import co.edu.eam.disenosoft.egresado.persistencia.entidades.Pais;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.SectorLaboral;
 
 public class ControladorAdministrarEmpresa {
@@ -22,7 +24,7 @@ public class ControladorAdministrarEmpresa {
 	private BODepartamento boDept;
 	private BOSectorLaboral boSectorLab;
 	private BOContacto boContacto;
-
+	private BOPais boPais;
 
 	public ControladorAdministrarEmpresa() {
 		boEmpresa = new BOEmpresa();
@@ -31,6 +33,7 @@ public class ControladorAdministrarEmpresa {
 		boDept = new BODepartamento();
 		boSectorLab = new BOSectorLaboral();
 		boContacto = new BOContacto();
+		boPais = new  BOPais();
 	}
 
 	/**
@@ -112,6 +115,20 @@ public class ControladorAdministrarEmpresa {
 	
 	public Contacto buscarContacto(int id) throws Exception {
 		return boContacto.buscarContacto(id);
+	}
+	/**
+	 * Lista de paises
+	 * @return lista de paises
+	 * @throws Exception
+	 */
+	public List<Pais> listaPais() throws Exception {
+		return boPais.listaPais();
+	}
+	/**
+	 * Buscar pais por id
+	 */
+	public Pais buscarPais(int idPais) throws Exception {
+		return boPais.buscarPais(idPais);
 	}
 	
 }

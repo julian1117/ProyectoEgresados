@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -30,6 +31,7 @@ public class Departamento implements Serializable {
 	@Column(name="NOMBRE_DEPARTAMENTO")
 	private String nomDepartamento;
 	
+	@ManyToOne
 	@JoinColumn(name="ID_PAIS")
 	private Pais pais;
 	
@@ -121,6 +123,15 @@ public class Departamento implements Serializable {
 			return false;
 		}
 		return true;
+	}
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return  nomDepartamento;
 	}
 
 	

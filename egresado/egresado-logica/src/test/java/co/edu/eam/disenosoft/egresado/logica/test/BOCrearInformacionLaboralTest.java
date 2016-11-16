@@ -51,7 +51,7 @@ public class BOCrearInformacionLaboralTest {
 		Calendar fecSa = Calendar.getInstance();  
 		fecSa.set(2016, 10, 20);
 		infoLab.setFechaSalida(fecSa.getTime());
-		infoLab.setNombreEmpresa("Pepito Soft");
+	//	infoLab.setNombreEmpresa("Pepito Soft");
 		infoLab.setSectorLaboral("Sistemas informaticos");
 		infoLab.setSitucionLaboral("Independiente");
 		infoLab.setTipoEmpresa("Privado");

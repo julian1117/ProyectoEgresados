@@ -57,7 +57,6 @@ public class BOEditarEmpresaTest {
 			empresa.setIdSectorLaboral(sector);
 
 			empresa.setIdCiudad(ciudad);
-			empresa.setCiudad(ciudad.getNombre());
 
 			boEmpresa.editarEmpresa(empresa);
 			Empresa em = boEmpresa.buscarEmpresa(empresa.getId());

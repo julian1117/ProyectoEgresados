@@ -48,7 +48,7 @@ public class BOEditarInformacionLaboralTest {
 		Calendar fecSa = Calendar.getInstance();  
 		fecSa.set(2014, 10, 20);  
 		infoLab.setFechaSalida(fecSa.getTime());
-		infoLab.setNombreEmpresa("Casa soft");
+	//	infoLab.setNombreEmpresa("Casa soft");
 		infoLab.setSectorLaboral("Sistemas informaticos");
 		infoLab.setSitucionLaboral("Desempleado");
 		infoLab.setTipoEmpresa("Privado");
