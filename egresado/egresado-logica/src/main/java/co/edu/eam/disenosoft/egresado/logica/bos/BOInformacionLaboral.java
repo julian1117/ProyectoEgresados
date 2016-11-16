@@ -5,6 +5,7 @@ import java.util.List;
 import co.edu.eam.disenosoft.egresado.logica.excepcionNegocio.ExcepcionNegocio;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Egresado;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.InformacionLaboral;
+import co.edu.eam.disenosoft.egresado.persistencia.entidades.Programa;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.SectorLaboral;
 import co.edu.eam.disenosoft.egresado.persistencia.implementaciones.jpa.DAOInformacionLaboralJPA;
 
@@ -86,4 +87,13 @@ public class BOInformacionLaboral {
 		return daoInfoLab.listaInfomracionLaboral();
 	}
 
+	/**
+	 * Lista informacion laboral por programa
+	 * @param programa
+	 * @return
+	 * @throws Exception
+	 */
+	public List<InformacionLaboral> listaInfomracionLaboralPrograma(Programa programa) throws Exception {
+		return daoInfoLab.listaInfomracionLaboralPrograma(programa);
+	}
 }

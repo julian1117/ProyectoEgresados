@@ -21,7 +21,8 @@ import javax.persistence.TemporalType;
 import com.mysql.fabric.jdbc.FabricMySQLDataSource;
 
 @NamedQueries({
-	@NamedQuery(name=InformacionLaboral.LISTA_iNFROMACION_LABORAL,query="SELECT i FROM InformacionLaboral i")
+	@NamedQuery(name=InformacionLaboral.LISTA_iNFROMACION_LABORAL,query="SELECT i FROM InformacionLaboral i"),
+	@NamedQuery(name=InformacionLaboral.LISTA_INFROMACION_LABORAL_POR_PROGRAMA,query="SELECT i FROM InformacionLaboral i WHERE i.programa=?1")
 })
 
 @Entity
@@ -29,6 +30,7 @@ import com.mysql.fabric.jdbc.FabricMySQLDataSource;
 public class InformacionLaboral implements Serializable {
 
 	public static final String LISTA_iNFROMACION_LABORAL = "InformacionLaboral.listaInfomracionLaboral";
+	public static final String LISTA_INFROMACION_LABORAL_POR_PROGRAMA = "InformacionLaboral.listaInfomracionLaboralPrograma";
 	
 	@Id
 	@Column(name="ID_EGRESADO")
@@ -62,6 +64,9 @@ public class InformacionLaboral implements Serializable {
 	@JoinColumn(name="ID_EMPRESA")
 	private Empresa empresa;
 	
+	@ManyToOne
+	@JoinColumn(name="ID_PROGRAMA")
+	private Programa programa;
 	
 //	@ManyToOne
 //	@JoinColumn(name="ID_EMPRESA")
@@ -224,6 +229,20 @@ public class InformacionLaboral implements Serializable {
 	}
 
 
+	/**
+	 * @return the programa
+	 */
+	public Programa getPrograma() {
+		return programa;
+	}
+
+
+	/**
+	 * @param programa the programa to set
+	 */
+	public void setPrograma(Programa programa) {
+		this.programa = programa;
+	}
 
 
 	/* (non-Javadoc)

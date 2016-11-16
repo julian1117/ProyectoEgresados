@@ -4,6 +4,7 @@ import java.util.List;
 
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Egresado;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.InformacionLaboral;
+import co.edu.eam.disenosoft.egresado.persistencia.entidades.Programa;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.SectorLaboral;
 
 /**
@@ -48,4 +49,11 @@ public interface IInformacionLaboralDAO {
 	 * @throws Exception
 	 */
 	List<InformacionLaboral> listaInfomracionLaboral() throws Exception;
+	
+	/**
+	 * Implementacion del metodo para listar informacion laboral por tipo de programa
+	 * @return lista de informacion laboral por programa
+	 * @throws Exception
+	 */
+	List<InformacionLaboral> listaInfomracionLaboralPrograma(Programa programa) throws Exception;
 }
