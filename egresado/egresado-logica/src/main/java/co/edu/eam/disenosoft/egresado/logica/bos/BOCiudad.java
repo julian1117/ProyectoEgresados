@@ -27,10 +27,16 @@ public class BOCiudad implements ICiudadDAO {
 		daoCiudad = new DAOCiudadJPA();
 	}
 	
+	/**
+	 * lista las ciudades 
+	 */
 	public List<Ciudad> listarCiudad() throws Exception {		
 			return daoCiudad.listarCiudad();		
 	}
 	
+	/**
+	 * busca una ciudad 
+	 */
 	public Ciudad buscarCiudad(int ciudad) throws Exception{
 		return daoCiudad.buscarCiudad(ciudad);
 	}

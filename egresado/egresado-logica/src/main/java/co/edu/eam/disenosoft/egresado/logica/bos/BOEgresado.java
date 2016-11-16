@@ -12,8 +12,14 @@ import co.edu.eam.disenosoft.egresado.persistencia.implementaciones.jpa.DAOEgres
  */
 public class BOEgresado {
 
+	/**
+	 * se llama el dao del egresado
+	 */
 	private DAOEgresadoJPA daoEgresado;
 
+	/**
+	 * constructor de la clase
+	 */
 	public BOEgresado() {
 		daoEgresado = new DAOEgresadoJPA();
 	}
@@ -50,6 +56,11 @@ public class BOEgresado {
 		}
 	}
 	
+	/**
+	 * metodo que busca un egresado
+	 * @param idEgresado objeto por el cual se hace la busqueda del egresado
+	 * @return la busqueda del egresado
+	 */
 	public Egresado buscarEgresado(int idEgresado) {
 		return daoEgresado.buscarEgresado(idEgresado);
 	}		
