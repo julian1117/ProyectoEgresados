@@ -17,6 +17,7 @@ import co.edu.eam.disenosoft.egresado.persistencia.entidades.AreaInteres;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Ciudad;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Empresa;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.OfertaLaboral;
+import co.edu.eam.disenosoft.egresado.persistencia.entidades.Programa;
 import co.edu.eam.disenosoft.egresado.vista.controlador.ControladorBolsa;
 
 
@@ -29,13 +30,14 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 	 * Creates new form BolsaEmpleo
 	 */
 	public BolsaEmpleo() {
-		initComponents();
-		conBolsa = new ControladorBolsa();
+		conBolsa = new ControladorBolsa();	
+		initComponents();	
+		this.setLocationRelativeTo(this);
 		llenarComboArea();
 		llenarComboCiudad();
 		listarEmpresa();
 		jBCerrarOferta.setEnabled(false);
-		this.setLocationRelativeTo(this);
+		llenarComboPrograma();
 	}
 
 	/**
@@ -82,7 +84,7 @@ public class BolsaEmpleo extends javax.swing.JFrame{
         jLabel13 = new javax.swing.JLabel();
         jCalendarCerrar = new com.toedter.calendar.JDateChooser();
         jLabel14 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        jCBPrograma = new javax.swing.JComboBox();
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -174,8 +176,6 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 
         jLabel14.setText("Programa");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -212,20 +212,18 @@ public class BolsaEmpleo extends javax.swing.JFrame{
                                     .addComponent(jCalendarOferta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jCalendarCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(jSSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(78, 78, 78))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addGap(18, 18, 18)
-                                .addComponent(jCheckBox1)
-                                .addGap(14, 14, 14))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel14)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(34, 34, 34)))
+                                .addComponent(jCBPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel4))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jSSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCheckBox1))
+                                .addGap(78, 78, 78)))
                         .addGap(36, 36, 36)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel7)
@@ -287,14 +285,14 @@ public class BolsaEmpleo extends javax.swing.JFrame{
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jSSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 15, 15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckBox1)
-                            .addComponent(jLabel12))
-                        .addGap(18, 18, 18)
+                            .addComponent(jLabel12)
+                            .addComponent(jCheckBox1))
+                        .addGap(26, 26, 26)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jCBPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBRegistro)
@@ -357,12 +355,13 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 				jTFCargo.setText(oferta.getCargoOfrecer());
 				jSSalario.setValue(oferta.getSalario());
 				jCalendarOferta.setDate(oferta.getFechaoferta());
-				jTAResumen.setText(oferta.getResumen());
-				//Aki edite
+				jCalendarCerrar.setDate(oferta.getFechaofertaCierre());
+				jTAResumen.setText(oferta.getResumen());				
 				jCBIdEmpresa.setSelectedItem(Integer.toString(oferta.getIdempresa().getId()));
 				jTARequerimientosOferta.setText(oferta.getRequisitoOferta());
 				jTADescripcionOferta.setText(oferta.getDescripcionOferta());
-
+				jCBPrograma.setSelectedItem(oferta.getPrograma());
+				
 				boolean ch = oferta.isCerrarOferta();
 				//
 				if (ch == true) {
@@ -403,7 +402,8 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 			String[] datosC = ciudad.split("-");
 			Ciudad idCiudad = conBolsa.buscarCiudad(Integer.parseInt(datosC[0]));
 			ofertaLa.setIdCiudad(idCiudad);
-
+			Programa programa = (Programa) jCBPrograma.getSelectedItem();
+			ofertaLa.setPrograma(programa);
 			ofertaLa.setFechaoferta(jCalendarOferta.getDate());
 			ofertaLa.setFechaofertaCierre(jCalendarCerrar.getDate());
 			ofertaLa.setResumen(jTAResumen.getText());
@@ -456,7 +456,8 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 			String[] datosC = ciudad.split("-");
 			Ciudad idCiudad = conBolsa.buscarCiudad(Integer.parseInt(datosC[0]));
 			ofertaLa.setIdCiudad(idCiudad);
-
+			Programa programa = (Programa) jCBPrograma.getSelectedItem();
+			ofertaLa.setPrograma(programa);
 			ofertaLa.setFechaoferta(jCalendarOferta.getDate());
 			ofertaLa.setFechaofertaCierre(jCalendarCerrar.getDate());
 			ofertaLa.setResumen(jTAResumen.getText());
@@ -598,7 +599,18 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 	}
 	
 	
-
+	public void llenarComboPrograma(){
+		try {
+			List<Programa> listaPrograma = conBolsa.listaPrograma();
+			jCBPrograma.removeAllItems();
+			for(Programa programa: listaPrograma){
+				jCBPrograma.addItem(programa);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 
 	/**
@@ -673,11 +685,11 @@ public class BolsaEmpleo extends javax.swing.JFrame{
     private javax.swing.JButton jBRegistro;
     private javax.swing.JComboBox<String> jCBAreaConocimiento;
     private javax.swing.JComboBox<String> jCBCiudadOferta;
-    private javax.swing.JComboBox<Empresa> jCBIdEmpresa;
+    private javax.swing.JComboBox jCBIdEmpresa;
+    private javax.swing.JComboBox jCBPrograma;
     private com.toedter.calendar.JDateChooser jCalendarCerrar;
     private com.toedter.calendar.JDateChooser jCalendarOferta;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
