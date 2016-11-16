@@ -6,13 +6,23 @@ import co.edu.eam.disenosoft.egresado.logica.bos.BOPrograma;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.AreaInteres;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Facultad;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Programa;
-
+/**
+ * Controlador parametrica en el cual se hace uso de los BO 
+ * @author laura posada
+ *
+ */
 public class ControladorAdministrarParametrica {
 
+	/**
+	 * se llama los bo de cada una de las entidades
+	 */
 	private BOFacultad boFacultad;
 	private BOPrograma boPrograma;
 	private BOAreaInteres boAreaInteres;
 	
+	/**
+	 * constructor de la clase
+	 */
 	public ControladorAdministrarParametrica(){
 		boFacultad = new BOFacultad();
 		boPrograma = new BOPrograma();
@@ -55,6 +65,12 @@ public class ControladorAdministrarParametrica {
 		
 	}
 
+	/**
+	 * metodo que busca una area
+	 * @param codigo objeto por el cual se va a buscar el area
+	 * @return la busqueda desde su respectivo bo
+	 * @throws Exception
+	 */
 	public AreaInteres buscarArea(int codigo) throws Exception {
 		return boAreaInteres.buscarAreaInteres(codigo);
 	}

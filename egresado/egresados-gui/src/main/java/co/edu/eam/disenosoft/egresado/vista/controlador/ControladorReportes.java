@@ -9,12 +9,23 @@ import co.edu.eam.disenosoft.egresado.persistencia.entidades.InformacionLaboral;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.OfertaLaboral;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Programa;
 
+/**
+ * Controlador reportes en el cual se hace uso de los BO 
+ * @author laura posada
+ *
+ */
 public class ControladorReportes {
 
+	/**
+	 * se llama los bo de cada una de las entidades
+	 */
 	private BOInformacionLaboral boInfoLab;
 	private BOOfertaLaboral boOfertaLab;
 	private BOPrograma boPrograma;
 	
+	/**
+	 * constructor de la clase
+	 */
 	public ControladorReportes() {
 		boInfoLab = new BOInformacionLaboral();
 		boOfertaLab = new BOOfertaLaboral();

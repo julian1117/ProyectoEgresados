@@ -12,13 +12,24 @@ import co.edu.eam.disenosoft.egresado.persistencia.entidades.Empresa;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.OfertaLaboral;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Programa;
 
+/**
+ * Controlador bolsa en el cual se hace uso de los BO 
+ * @author laura posada
+ *
+ */
 public class ControladorBolsa {
 	
+	/**
+	 * se llama los bo de cada una de las entidades
+	 */
 	private BOOfertaLaboral boOfertaLaboral;
 	private BOAreaInteres boAreaInteres;
 	private BOCiudad boCiudad;
 	private BOPrograma boPrograma;
 	
+	/**
+	 * constructor de la clase
+	 */
 	public ControladorBolsa() {
 		boOfertaLaboral = new BOOfertaLaboral();
 		boAreaInteres= new BOAreaInteres();
@@ -27,16 +38,16 @@ public class ControladorBolsa {
 	}
 	
 	/**
-	 * 
-	 * @param ofertaLa
+	 * metodo que crea una oferta laboral por medio de su bo
+	 * @param ofertaLa objeto por el cual se va a crear la oferta
 	 * @throws Exception
 	 */
 	public void crearOfertaLaboral (OfertaLaboral ofertaLa) throws Exception{
 		boOfertaLaboral.crearOfertaLaboral(ofertaLa);
 	}
 	/**
-	 * 
-	 * @return
+	 * lista las areas de interes
+	 * @return las areas de interes por medio de su bo
 	 * @throws Exception
 	 */
 	public List<AreaInteres> listarAreas() throws Exception {
@@ -44,9 +55,9 @@ public class ControladorBolsa {
 		return are;
 	}
 	/**
-	 * 
-	 * @param area
-	 * @return
+	 * busca una area de interes 
+	 * @param area objeto por el cual se va a buscar una area 
+	 * @return la busqueda desde su respectivo bo
 	 * @throws Exception
 	 */
 	public AreaInteres buscarIdArea (int area) throws Exception{
@@ -54,8 +65,8 @@ public class ControladorBolsa {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * metodo que lista ciudades
+	 * @return las ciudades por medio del bo
 	 * @throws Exception
 	 */
 	public List<Ciudad> listarCiudad() throws Exception {
@@ -63,9 +74,9 @@ public class ControladorBolsa {
 	}
 	
 	/**
-	 * 
-	 * @param ciudad
-	 * @return
+	 * busca ciudades 
+	 * @param ciudad objeto por el cual se va hacer la busqueda
+	 * @return la busqueda desde su respectivo bo
 	 * @throws Exception
 	 */
 	public Ciudad buscarCiudad(int ciudad) throws Exception{
@@ -73,9 +84,9 @@ public class ControladorBolsa {
 	}
 	
 	/**
-	 * 
-	 * @param idEm
-	 * @return
+	 * metodo que busca una empresa 
+	 * @param idEm objeto por el cual se va hacer la busqueda
+	 * @return la busqueda desde su respectivo bo
 	 * @throws Exception
 	 */
 	public Empresa buscarEmpresa (int idEm) throws Exception{
@@ -83,9 +94,9 @@ public class ControladorBolsa {
 	}
 	
 	/**
-	 * 
-	 * @param idOferta
-	 * @return
+	 * metodo que busca una oferta laboral
+	 * @param idOferta objeto por el cual se va hacer la busqueda 			
+	 * @return la busqueda desde su respectivo bo
 	 * @throws Exception
 	 */
 	public OfertaLaboral buscarOferta(int idOferta) throws Exception {
@@ -93,8 +104,8 @@ public class ControladorBolsa {
 	}
 	
 	/**
-	 * 
-	 * @param idOferta
+	 * metodo que edita una oferta laboral 
+	 * @param idOferta objeto por el cual se edita la oferta
 	 * @throws Exception
 	 */
 	public void editarOferta (OfertaLaboral Oferta) throws Exception{
