@@ -1,5 +1,7 @@
 package co.edu.eam.disenosoft.egresado.persistencia.definiciones;
 
+import java.util.List;
+
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Programa;
 /**
  * Interface de registro de programa
@@ -30,4 +32,10 @@ public interface IProgramaDAO {
 	 */
 	public Programa buscarPrograma (int id) throws Exception;
 	
+	/**
+	 * Lista de programas academicos
+	 * @return lista de programas
+	 * @throws Exception
+	 */
+	public List<Programa> listaPrograma () throws Exception;
 }

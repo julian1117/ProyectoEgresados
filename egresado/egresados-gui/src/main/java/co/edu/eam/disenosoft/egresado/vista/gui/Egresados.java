@@ -43,7 +43,8 @@ public class Egresados extends javax.swing.JFrame {
 		llenarComboProgramas();
 		llenarComboInfoLab();
 		llenarTabla();
-
+		llenarComboPrograma();
+		listarEmpresa();
 	}
 
 	/**
@@ -81,8 +82,7 @@ public class Egresados extends javax.swing.JFrame {
         jTFNumDocDP = new javax.swing.JTextField();
         CBTipoDocDP = new javax.swing.JComboBox();
         jLabel9 = new javax.swing.JLabel();
-        jTFIdProgramDP = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
+        jComboProg = new javax.swing.JComboBox();
         jPanel4 = new javax.swing.JPanel();
         jBCancelarDP = new javax.swing.JButton();
         jBEditarEgresado = new javax.swing.JButton();
@@ -131,7 +131,7 @@ public class Egresados extends javax.swing.JFrame {
         jCFechaSalida = new com.toedter.calendar.JDateChooser();
         jLabel12 = new javax.swing.JLabel();
         jTFIdDelEgresadoB = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox();
+        jCBEmpresa = new javax.swing.JComboBox();
         jPanel6 = new javax.swing.JPanel();
         jBCancelarOA = new javax.swing.JButton();
         jBRegistroInfoLaboral = new javax.swing.JButton();
@@ -196,65 +196,64 @@ public class Egresados extends javax.swing.JFrame {
 
         jLabel9.setText("Id del Programa");
 
-        jTFIdProgramDP.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTFIdProgramDPKeyTyped(evt);
-            }
-        });
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+            .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(JTFNumTelDP, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jLNombreDP))
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel10Layout.createSequentialGroup()
+                                        .addGap(50, 50, 50)
+                                        .addComponent(jLNombreDP))
+                                    .addGroup(jPanel10Layout.createSequentialGroup()
+                                        .addGap(24, 24, 24)
+                                        .addComponent(jLPrimerApeDP))
+                                    .addComponent(jLabel2))
+                                .addGap(26, 26, 26)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTFNombreDP)
+                                    .addComponent(jTFPrimerApeDP)
+                                    .addComponent(CBTipoDocDP, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jLPrimerApeDP))
-                            .addComponent(jLabel2))
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTFNombreDP)
-                            .addComponent(jTFPrimerApeDP)
-                            .addComponent(CBTipoDocDP, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(26, 26, 26)
-                        .addComponent(jTFNumDocDP, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel26)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTFEmailDP, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JTFNumTelDP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JTFNumCelDP, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTFIdProgramDP, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                                .addComponent(jLabel3)
+                                .addGap(26, 26, 26)
+                                .addComponent(jTFNumDocDP)))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel9))
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(jTFEmailDP, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JTFNumCelDP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboProg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(12, 12, 12)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLNombreDP)
-                            .addComponent(jTFNombreDP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jTFEmailDP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTFEmailDP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLNombreDP)
+                        .addComponent(jTFNombreDP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(5, 5, 5)
@@ -278,13 +277,11 @@ public class Egresados extends javax.swing.JFrame {
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel26)
                             .addComponent(JTFNumCelDP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(9, 9, 9)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
-                            .addComponent(jTFIdProgramDP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                            .addComponent(jComboProg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -368,18 +365,18 @@ public class Egresados extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPDatosPersonalesLayout.createSequentialGroup()
-                        .addGap(43, 43, 43)
+                        .addGap(69, 69, 69)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         jPDatosPersonalesLayout.setVerticalGroup(
             jPDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPDatosPersonalesLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(46, 46, 46)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         jTPEgresados.addTab("Datos Personales", jPDatosPersonales);
@@ -601,7 +598,7 @@ public class Egresados extends javax.swing.JFrame {
                     .addGroup(jPEducacionLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         jPEducacionLayout.setVerticalGroup(
             jPEducacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -650,8 +647,6 @@ public class Egresados extends javax.swing.JFrame {
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -670,7 +665,7 @@ public class Egresados extends javax.swing.JFrame {
                     .addComponent(jCBTipoEmpresaOA, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCBSectorLaboral, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTFIdDelEgresadoB)
-                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jCBEmpresa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -706,7 +701,7 @@ public class Egresados extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel22)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jCBEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel25)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -805,7 +800,7 @@ public class Egresados extends javax.swing.JFrame {
                     .addGroup(jPInfLaboralLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         jPInfLaboralLayout.setVerticalGroup(
             jPInfLaboralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -866,7 +861,7 @@ public class Egresados extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -915,11 +910,11 @@ public class Egresados extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 647, Short.MAX_VALUE)
+            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jTPEgresados, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jTPEgresados, javax.swing.GroupLayout.PREFERRED_SIZE, 667, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -934,7 +929,9 @@ public class Egresados extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -993,7 +990,7 @@ public class Egresados extends javax.swing.JFrame {
 				jCBLaboralAcOA.setSelectedItem(infoLab.getSitucionLaboral());
 				jCBSectorLaboral.setSelectedItem(infoLab.getSectorLaboral());
 				jCBTipoEmpresaOA.setSelectedItem(infoLab.getTipoEmpresa());
-				//jTFNomEmpresaOA.setText(infoLab.getNombreEmpresa());
+				jCBEmpresa.setSelectedItem(infoLab.getEmpresa());
 				jTFCargoEmpOA.setText(infoLab.getCargoEmpresa());
 				jCFechaingreso.setDate(infoLab.getFechaIngreso());
 				jCFechaSalida.setDate(infoLab.getFechaSalida());
@@ -1030,8 +1027,10 @@ public class Egresados extends javax.swing.JFrame {
 
 			Egresado egresado = new Egresado();
 
-			int idProg = Integer.parseInt(jTFIdProgramDP.getText());
-			Programa prog = contEgresado.buscarPrograma(idProg);
+			
+			
+			Programa idProg = (Programa) jComboProg.getSelectedItem();
+			Programa prog = contEgresado.buscarPrograma(idProg.getIdPrograma());
 			if (prog != null) {
 				egresado.setId(Integer.parseInt(jTFNumDocDP.getText()));
 				egresado.setApellido(jTFPrimerApeDP.getText());
@@ -1158,7 +1157,8 @@ public class Egresados extends javax.swing.JFrame {
 			infoLab.setEgresado(egre);
 			infoLab.setFechaIngreso(jCFechaingreso.getDate());
 			infoLab.setFechaSalida(jCFechaSalida.getDate());
-			//infoLab.setNombreEmpresa(jTFNomEmpresaOA.getText());
+			Empresa empresa = (Empresa) jCBEmpresa.getSelectedItem();
+			infoLab.setEmpresa(empresa);
 			infoLab.setSectorLaboral((String) jCBSectorLaboral.getSelectedItem());
 			infoLab.setSitucionLaboral((String) jCBLaboralAcOA.getSelectedItem());
 			infoLab.setTipoEmpresa((String) jCBTipoEmpresaOA.getSelectedItem());
@@ -1184,7 +1184,8 @@ public class Egresados extends javax.swing.JFrame {
 			infoLab.setEgresado(egre);
 			infoLab.setFechaIngreso(jCFechaingreso.getDate());
 			infoLab.setFechaSalida(jCFechaSalida.getDate());
-		//	infoLab.setNombreEmpresa(jTFNomEmpresaOA.getText());
+			Empresa empresa = (Empresa) jCBEmpresa.getSelectedItem();
+			infoLab.setEmpresa(empresa);
 			infoLab.setSectorLaboral((String) jCBSectorLaboral.getSelectedItem());
 			infoLab.setSitucionLaboral((String) jCBLaboralAcOA.getSelectedItem());
 			infoLab.setTipoEmpresa((String) jCBTipoEmpresaOA.getSelectedItem());
@@ -1212,7 +1213,7 @@ public class Egresados extends javax.swing.JFrame {
 		jTFEmailDP.setText(egres.getEmail());
 		JTFNumTelDP.setText(egres.getTelefono());
 		JTFNumCelDP.setText(egres.getCelular());
-		jTFIdProgramDP.setText(Integer.toString(egres.getPrograma().getIdPrograma()));
+		jComboProg.setSelectedItem(egres.getPrograma());
 
 	}// GEN-LAST:event_jBBUscarDatosEgresadoActionPerformed
 
@@ -1224,8 +1225,8 @@ public class Egresados extends javax.swing.JFrame {
 				
 				co.edu.eam.disenosoft.egresado.persistencia.entidades.Egresado egresado = new co.edu.eam.disenosoft.egresado.persistencia.entidades.Egresado();
 
-				int idProg = Integer.parseInt(jTFIdProgramDP.getText());
-				Programa prog = contEgresado.buscarPrograma(idProg);
+				Programa idProg = (Programa) jComboProg.getSelectedItem();
+				Programa prog = contEgresado.buscarPrograma(idProg.getIdPrograma());
 				
 					egresado.setId(Integer.parseInt(jTFNumDocDP.getText()));
 					egresado.setApellido(jTFPrimerApeDP.getText());
@@ -1343,16 +1344,47 @@ public class Egresados extends javax.swing.JFrame {
 			evt.consume();
 
 			JOptionPane.showMessageDialog(null, "Ingresa Solo Numeros");
-
 		}
 	}
 
+	public void llenarComboPrograma(){
+		try {
+			List<Programa> listaPrograma = contEgresado.listaPrograma();
+			jComboProg.removeAllItems();
+			for(Programa programa: listaPrograma){
+				jComboProg.addItem(programa);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void limpiarEgresado(){
 		jTFNombreDP.setText(null);
 		jTFPrimerApeDP.setText(null);
 		CBTipoDocDP.setSelectedIndex(1);
 		
 	}
+	
+	/**
+	 * lista una empresa que ha sido buscada 
+	 * @param oferta la oferta buscada a la cual se le busca la 
+	 * empresa 
+	 */
+	public void listarEmpresa() {
+		try {
+			jCBEmpresa.removeAllItems();
+			List<Empresa> listaEmpresa = contEgresado.listaEmpresa();
+			for (int i = 0; i < listaEmpresa.size(); i++) {
+				jCBEmpresa.addItem(listaEmpresa.get(i));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
+	
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CBTipoDocDP;
     private javax.swing.JButton JBTGuardarRegEdicacion;
@@ -1374,6 +1406,7 @@ public class Egresados extends javax.swing.JFrame {
     private javax.swing.JButton jBRegistroInfoLaboral;
     private javax.swing.JButton jBSigED;
     private javax.swing.JButton jBSiguienteEgresado;
+    private javax.swing.JComboBox jCBEmpresa;
     private javax.swing.JComboBox<String> jCBFacultadED;
     private javax.swing.JComboBox<String> jCBLaboralAcOA;
     private javax.swing.JComboBox<String> jCBNivelAlcED;
@@ -1382,8 +1415,7 @@ public class Egresados extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jCBTipoEmpresaOA;
     private com.toedter.calendar.JDateChooser jCFechaSalida;
     private com.toedter.calendar.JDateChooser jCFechaingreso;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox jComboProg;
     private com.toedter.calendar.JDateChooser jDCFechaGrado;
     private javax.swing.JLabel jLNombreDP;
     private javax.swing.JLabel jLPrimerApeDP;
@@ -1430,7 +1462,6 @@ public class Egresados extends javax.swing.JFrame {
     private javax.swing.JTextField jTFEmailDP;
     private javax.swing.JTextField jTFIdDelEgresado;
     private javax.swing.JTextField jTFIdDelEgresadoB;
-    private javax.swing.JTextField jTFIdProgramDP;
     private javax.swing.JTextField jTFNombreDP;
     private javax.swing.JTextField jTFNumDocAplicarOferta;
     private javax.swing.JTextField jTFNumDocDP;

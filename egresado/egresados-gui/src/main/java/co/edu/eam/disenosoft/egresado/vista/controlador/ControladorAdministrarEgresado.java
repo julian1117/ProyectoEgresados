@@ -170,4 +170,17 @@ public class ControladorAdministrarEgresado {
 	public void aplicarOferta(OfertaAplicadaEgresado aplicarOfer) throws Exception {
 		boAplicarOferta.aplicarOferta(aplicarOfer);
 	}
+	
+	/**
+	 * Lista de programas
+	 * @return lista de programas
+	 * @throws Exception
+	 */
+	public List<Programa> listaPrograma () throws Exception{
+		return boPrograma.listaPrograma();
+	}
+	
+	public List<Empresa> listaEmpresa() throws Exception{
+		return boOfertaLab.listaEmpresa();
+	}
 }

@@ -1,5 +1,7 @@
 package co.edu.eam.disenosoft.egresado.logica.bos;
 
+import java.util.List;
+
 import co.edu.eam.disenosoft.egresado.logica.excepcionNegocio.ExcepcionNegocio;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Programa;
 import co.edu.eam.disenosoft.egresado.persistencia.implementaciones.jpa.DAOProgramaJPA;
@@ -69,6 +71,15 @@ public class BOPrograma {
 			throw new ExcepcionNegocio("El programa academico no existe");
 		}
 
+	}
+	
+	/**
+	 * Lista de programas
+	 * @return lista de programas
+	 * @throws Exception
+	 */
+	public List<Programa> listaPrograma () throws Exception{
+		return daoPrograma.listaPrograma();
 	}
 	
 	

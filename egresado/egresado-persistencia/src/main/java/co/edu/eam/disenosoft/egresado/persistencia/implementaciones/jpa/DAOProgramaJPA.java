@@ -1,6 +1,9 @@
 package co.edu.eam.disenosoft.egresado.persistencia.implementaciones.jpa;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import co.edu.eam.disenosoft.egresado.persistencia.definiciones.IProgramaDAO;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Programa;
@@ -40,5 +43,14 @@ public class DAOProgramaJPA implements IProgramaDAO{
 		EntityManager em = AdministradorEntityManager.getEntityManager();
 		return em.find(Programa.class, id);
 	}
+
+	public List<Programa> listaPrograma() throws Exception {
+		EntityManager em = AdministradorEntityManager.getEntityManager();		
+		Query q = em.createNamedQuery(Programa.LISTA_DE_PROGRAMAS);
+		List<Programa> listaProgramas = q.getResultList();
+		return listaProgramas;
+	}
+	
+	
 
 }
