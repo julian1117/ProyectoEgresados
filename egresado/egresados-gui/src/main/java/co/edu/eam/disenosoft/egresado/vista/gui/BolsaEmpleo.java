@@ -444,10 +444,11 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 	private void jBCerrarOfertaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBCerrarOfertaActionPerformed
 
 		try {
-
+			if (jCheckBox1.isSelected() == true) {
 			OfertaLaboral ofertaLa = new OfertaLaboral();
-			AreaInteres area = (AreaInteres) jCBAreaConocimiento.getSelectedItem();	
-			ofertaLa.setIdArea(area);
+			AreaInteres area = (AreaInteres) jCBAreaConocimiento.getSelectedItem();
+			AreaInteres ar = conBolsa.buscarIdArea(area.getIdArea());
+			ofertaLa.setIdArea(ar);
 			ofertaLa.setCargoOfrecer(jTFCargo.getText());
 			ofertaLa.setSalario((Double) jSSalario.getValue());
 
@@ -469,25 +470,17 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 			ofertaLa.setRequisitoOferta(jTARequerimientosOferta.getText());
 			ofertaLa.setDescripcionOferta(jTADescripcionOferta.getText());
 
-			boolean ch = ofertaLa.isCerrarOferta();	
-			if (ch == true) {
-				jCheckBox1.setSelected(true);
-			}			
-			boolean cerrado;
-			// valida que el checkPostgrado este true o false
-			if (jCheckBox1.isSelected() == true) {
-				cerrado = true;
-			} else {
-				cerrado = false;
-			}
-			if(ch == cerrado){
-				
-			}else{
-				ofertaLa.setCerrarOferta(cerrado);
+				ofertaLa.setCerrarOferta(true);
 				conBolsa.editarOferta(ofertaLa);
 				JOptionPane.showMessageDialog(null, "La oferta laboral ha sido cerrada!!");
 				limpiarCampos();
+			} else {
+				JOptionPane.showMessageDialog(null, "Debe seleccionar la opcion cerrar oferta");
 			}
+				
+			
+				
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -569,7 +562,7 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 		try {
 			List<AreaInteres> areas = conBolsa.listtarAreasIn(ofertaL);
 			for (int i = 0; i < areas.size(); i++) {
-				jCBAreaConocimiento.addItem(areas.get(i).getIdArea() + "-" + areas.get(i).getNombre());
+				jCBAreaConocimiento.addItem(areas.get(i));
 			}
 
 		} catch (Exception e) {
