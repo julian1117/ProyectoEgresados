@@ -4,6 +4,11 @@ import java.util.List;
 
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.AreaInteres;
 
+/**
+ * clasepara declarar los metodos del area de interes
+ * @author laura posada
+ * 16/11/2016
+ */
 public interface IAreaInteresDAO {
 
 	/**

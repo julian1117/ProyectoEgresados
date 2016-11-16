@@ -12,41 +12,34 @@ import co.edu.eam.disenosoft.egresado.persistencia.entidades.SectorLaboral;
 import co.edu.eam.disenosoft.egresado.persistencia.utilidades.AdministradorEntityManager;
 
 /**
- * 
+ * Clase que permite gestionar todos los metodos declarados en la interface
  * @author CAMILO
  *
  */
 public class DAOInformacionLaboralJPA implements IInformacionLaboralDAO {
 
 	/**
-	 * 
+	 * crea una informacion laboral
 	 */
 	public void crearInformacionLaboral(InformacionLaboral infoLab) throws Exception {
 		EntityManager em = AdministradorEntityManager.getEntityManager();
-
 		em.getTransaction().begin();
-
 		em.persist(infoLab);
-
 		em.getTransaction().commit();
-
 	}
 
 	/**
-	 * 
+	 * edita una informacion laboral
 	 */
 	public void editarInformacionLaboral(InformacionLaboral infoLab) throws Exception {
 		EntityManager em = AdministradorEntityManager.getEntityManager();
-
 		em.getTransaction().begin();
-
 		em.merge(infoLab);
-
 		em.getTransaction().commit();
 	}
 
 	/**
-	 * 
+	 * busca una informacion laboral
 	 */
 	public InformacionLaboral buscarInformacionLaboral(int id) throws Exception {
 		EntityManager em = AdministradorEntityManager.getEntityManager();
@@ -54,7 +47,7 @@ public class DAOInformacionLaboralJPA implements IInformacionLaboralDAO {
 	}
 
 	/**
-	 * 
+	 * lista los sectores laborales por medio de la consulta 
 	 */
 	public List<SectorLaboral> listaLaboral() throws Exception {
 		EntityManager em = AdministradorEntityManager.getEntityManager();

@@ -6,7 +6,11 @@ import co.edu.eam.disenosoft.egresado.persistencia.entidades.AreaInteres;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Ciudad;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Empresa;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.OfertaLaboral;
-
+/**
+ * clase donde se declaran los metodos para una oferta laboral
+ * @author laura posada
+ * 16/11/2016
+ */
 public interface IOfertaLaboral {
 	/**
 	 * implementacion del metodo para crear una oferta laborarl
@@ -20,7 +24,7 @@ public interface IOfertaLaboral {
 	 * implementacion del metodo para buscar una empresa ya creada
 	 * @param idEm objeto que recibe la busqueda por el cual
 	 * se buscara
-	 * @return 
+	 * @return los datod de la empresa buscada
 	 * @throws Exception que se puede efectuar
 	 */
 	public Empresa buscarEmpresa (int idEm) throws Exception;
@@ -47,7 +51,7 @@ public interface IOfertaLaboral {
 	 * una oferta creada
 	 * @param idOferta objeto que recibe el metodo para buscar las areas de interes
 	 * de la oferta
-	 * @return
+	 * @return areas de interes encontradas
 	 * @throws Exception
 	 */
 	public List<AreaInteres> listtarAreasIn(OfertaLaboral idOferta) throws Exception;
@@ -61,11 +65,16 @@ public interface IOfertaLaboral {
 	 */
 	public List<Ciudad> listarCiudadOf(OfertaLaboral idOf) throws Exception;
 	
+	/**
+	 * implementacion del metodo listar una oferta laboral
+	 * @return los datos de la oferta laboal
+	 * @throws Exception
+	 */
 	public List<OfertaLaboral> listaOferta () throws Exception;
 	
 	/**
 	 * implementacion del metodo para listar las empresas creadas
-	 * @return 
+	 * @return las empresas encontradas
 	 * @throws Exception
 	 */
 	public List<Empresa> listaEmpresa() throws Exception;

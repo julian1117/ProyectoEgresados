@@ -4,6 +4,11 @@ import java.util.List;
 
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Ciudad;
 
+/**
+ * clase para declarar los metodos de la ciudad
+ * @author laura posada
+ *
+ */
 public interface ICiudadDAO {
 	
 	/**

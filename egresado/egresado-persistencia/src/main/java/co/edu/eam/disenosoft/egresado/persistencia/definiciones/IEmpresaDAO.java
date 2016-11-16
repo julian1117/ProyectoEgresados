@@ -2,6 +2,11 @@ package co.edu.eam.disenosoft.egresado.persistencia.definiciones;
 
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Empresa;
 
+/**
+ * clase donde se declara los metodos para la empresa
+ * @author laura posada
+ * 16/11/2016
+ */
 public interface IEmpresaDAO {
 
 	/**
