@@ -444,7 +444,6 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 	private void jBCerrarOfertaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBCerrarOfertaActionPerformed
 
 		try {
-
 			OfertaLaboral ofertaLa = new OfertaLaboral();
 			String area = (String) jCBAreaConocimiento.getSelectedItem();
 			String[] datos = area.split("-");
@@ -472,6 +471,10 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 			ofertaLa.setRequisitoOferta(jTARequerimientosOferta.getText());
 			ofertaLa.setDescripcionOferta(jTADescripcionOferta.getText());
 
+			boolean ch = ofertaLa.isCerrarOferta();	
+			if (ch == true) {
+				jCheckBox1.setSelected(true);
+			}			
 			boolean cerrado;
 			// valida que el checkPostgrado este true o false
 			if (jCheckBox1.isSelected() == true) {
@@ -479,17 +482,17 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 			} else {
 				cerrado = false;
 			}
-
-			ofertaLa.setCerrarOferta(cerrado);
-
-			conBolsa.editarOferta(ofertaLa);
-			JOptionPane.showMessageDialog(null, "La oferta laboral ha sido cerrada!!");
-			limpiarCampos();
-
+			if(ch == cerrado){
+				
+			}else{
+				ofertaLa.setCerrarOferta(cerrado);
+				conBolsa.editarOferta(ofertaLa);
+				JOptionPane.showMessageDialog(null, "La oferta laboral ha sido cerrada!!");
+				limpiarCampos();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		jBBuscar.setEnabled(true);
 		jBCerrarOferta.setEnabled(false);
 		jBRegistro.setEnabled(true);
@@ -600,7 +603,9 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 
 	}
 	
-	
+	/**
+	 * llena el combo con los programas por medio de la lista
+	 */
 	public void llenarComboPrograma(){
 		try {
 			List<Programa> listaPrograma = conBolsa.listaPrograma();
@@ -644,7 +649,8 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 		jSSalario.setValue(689.454);;
 		jCalendarOferta.setDate(null);
 		jTAResumen.setText(null);
-		//______________________________________________________________________________________
+		jCalendarCerrar.setDate(null);
+		jCBPrograma.setSelectedIndex(0);
 		jCBIdEmpresa.setSelectedIndex(0);
 		jTARequerimientosOferta.setText(null);
 		jTADescripcionOferta.setText(null);
@@ -666,8 +672,13 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 		jCBIdEmpresa.setEnabled(false);
 		jTARequerimientosOferta.setEnabled(false);
 		jTADescripcionOferta.setEnabled(false);
+		jCBPrograma.setEnabled(false);
+		jCalendarCerrar.setEnabled(false);
 	}
 	
+	/**
+	 * habilita los campos 
+	 */
 	public void habilitar(){
 		jTFIdOferta.setEnabled(true);
 		jCBAreaConocimiento.setEnabled(true);;
@@ -679,6 +690,8 @@ public class BolsaEmpleo extends javax.swing.JFrame{
 		jCBIdEmpresa.setEnabled(false);
 		jTARequerimientosOferta.setEnabled(true);
 		jTADescripcionOferta.setEnabled(true);
+		jCBPrograma.setEnabled(true);
+		jCalendarCerrar.setEnabled(true);
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
