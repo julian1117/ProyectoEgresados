@@ -8,6 +8,7 @@ import javax.persistence.Query;
 import co.edu.eam.disenosoft.egresado.persistencia.definiciones.IInformacionLaboralDAO;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Egresado;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.InformacionLaboral;
+import co.edu.eam.disenosoft.egresado.persistencia.entidades.Programa;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.SectorLaboral;
 import co.edu.eam.disenosoft.egresado.persistencia.utilidades.AdministradorEntityManager;
 
@@ -64,6 +65,17 @@ public class DAOInformacionLaboralJPA implements IInformacionLaboralDAO {
 		Query q = em.createNamedQuery(InformacionLaboral.LISTA_iNFROMACION_LABORAL);
 		List<InformacionLaboral> listaInfomracionLaboral = q.getResultList();			
 		return listaInfomracionLaboral;
+	}
+
+	/**
+	 * Lista de informacion laboral por programa
+	 */
+	public List<InformacionLaboral> listaInfomracionLaboralPrograma(Programa programa) throws Exception {
+		EntityManager em = AdministradorEntityManager.getEntityManager();
+		Query q = em.createNamedQuery(InformacionLaboral.LISTA_INFROMACION_LABORAL_POR_PROGRAMA);
+		q.setParameter(1,programa);
+		List<InformacionLaboral> listaPrograma = q.getResultList();
+		return listaPrograma;
 	}
 
 }

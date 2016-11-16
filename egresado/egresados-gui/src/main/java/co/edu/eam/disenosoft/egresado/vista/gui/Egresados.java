@@ -45,6 +45,7 @@ public class Egresados extends javax.swing.JFrame {
 		llenarTabla();
 		llenarComboPrograma();
 		listarEmpresa();
+		llenarComboProg();
 	}
 
 	/**
@@ -132,6 +133,8 @@ public class Egresados extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jTFIdDelEgresadoB = new javax.swing.JTextField();
         jCBEmpresa = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
+        JCBPrograma = new javax.swing.JComboBox();
         jPanel6 = new javax.swing.JPanel();
         jBCancelarOA = new javax.swing.JButton();
         jBRegistroInfoLaboral = new javax.swing.JButton();
@@ -647,6 +650,8 @@ public class Egresados extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Programa academico");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -654,6 +659,7 @@ public class Egresados extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
                     .addComponent(jLabel21)
                     .addComponent(jLabel19)
                     .addComponent(jLabel20)
@@ -665,7 +671,8 @@ public class Egresados extends javax.swing.JFrame {
                     .addComponent(jCBTipoEmpresaOA, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCBSectorLaboral, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTFIdDelEgresadoB)
-                    .addComponent(jCBEmpresa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jCBEmpresa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JCBPrograma, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -675,7 +682,7 @@ public class Egresados extends javax.swing.JFrame {
                         .addComponent(jCFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jTFCargoEmpOA, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel25))
-                .addGap(0, 51, Short.MAX_VALUE))
+                .addGap(0, 146, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -714,7 +721,11 @@ public class Egresados extends javax.swing.JFrame {
                         .addComponent(jLabel24)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jCFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JCBPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -795,21 +806,21 @@ public class Egresados extends javax.swing.JFrame {
             .addGroup(jPInfLaboralLayout.createSequentialGroup()
                 .addGroup(jPInfLaboralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPInfLaboralLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(91, 91, 91)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPInfLaboralLayout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         jPInfLaboralLayout.setVerticalGroup(
             jPInfLaboralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPInfLaboralLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(27, 27, 27)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         jTPEgresados.addTab("Info Laboral", jPInfLaboral);
@@ -994,6 +1005,7 @@ public class Egresados extends javax.swing.JFrame {
 				jTFCargoEmpOA.setText(infoLab.getCargoEmpresa());
 				jCFechaingreso.setDate(infoLab.getFechaIngreso());
 				jCFechaSalida.setDate(infoLab.getFechaSalida());
+				JCBPrograma.setSelectedItem(infoLab.getPrograma());
 			} else {
 				JOptionPane.showMessageDialog(null, "No existe registro laboral de este egresado");
 			}
@@ -1163,7 +1175,8 @@ public class Egresados extends javax.swing.JFrame {
 			infoLab.setSectorLaboral((String) jCBSectorLaboral.getSelectedItem());
 			infoLab.setSitucionLaboral((String) jCBLaboralAcOA.getSelectedItem());
 			infoLab.setTipoEmpresa((String) jCBTipoEmpresaOA.getSelectedItem());
-
+			Programa programa = (Programa) JCBPrograma.getSelectedItem();
+			infoLab.setPrograma(programa);
 			contEgresado.crearInformacionLaboral(infoLab);
 			limoiarInfLaboral();
 			JOptionPane.showMessageDialog(null, "Informacion laboral del egresado guardada con exito");
@@ -1190,7 +1203,8 @@ public class Egresados extends javax.swing.JFrame {
 			infoLab.setSectorLaboral((String) jCBSectorLaboral.getSelectedItem());
 			infoLab.setSitucionLaboral((String) jCBLaboralAcOA.getSelectedItem());
 			infoLab.setTipoEmpresa((String) jCBTipoEmpresaOA.getSelectedItem());
-
+			Programa programa = (Programa) JCBPrograma.getSelectedItem();
+			infoLab.setPrograma(programa);
 			contEgresado.editarInformacionLaboral(infoLab);
 
 			JOptionPane.showMessageDialog(null, "Informacion laboral del egresado editada con exito");
@@ -1300,6 +1314,25 @@ public class Egresados extends javax.swing.JFrame {
 
 			for (Programa programa : lisPro) {
 				jCBProgramaED.addItem(programa.getNombrePrograma());
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * LLena el combo box de programa con una lista de programas academicos
+	 * regsitrados
+	 */
+	public void llenarComboProg() {
+		try {
+			JCBPrograma.removeAllItems();
+			JCBPrograma.addItem("Selecciones un programa");
+			List<Programa> lisPro = contEgresado.listaProgramas();
+
+			for (Programa programa : lisPro) {
+				JCBPrograma.addItem(programa);
 			}
 
 		} catch (Exception e) {
@@ -1448,6 +1481,7 @@ public class Egresados extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CBTipoDocDP;
     private javax.swing.JButton JBTGuardarRegEdicacion;
+    private javax.swing.JComboBox JCBPrograma;
     private javax.swing.JTextField JTFNumCelDP;
     private javax.swing.JTextField JTFNumTelDP;
     private javax.swing.JButton jBAnteriorED;
@@ -1479,6 +1513,7 @@ public class Egresados extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jDCFechaGrado;
     private javax.swing.JLabel jLNombreDP;
     private javax.swing.JLabel jLPrimerApeDP;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
