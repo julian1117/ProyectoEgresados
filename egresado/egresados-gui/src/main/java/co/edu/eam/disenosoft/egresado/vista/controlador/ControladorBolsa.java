@@ -5,21 +5,25 @@ import java.util.List;
 import co.edu.eam.disenosoft.egresado.logica.bos.BOAreaInteres;
 import co.edu.eam.disenosoft.egresado.logica.bos.BOCiudad;
 import co.edu.eam.disenosoft.egresado.logica.bos.BOOfertaLaboral;
+import co.edu.eam.disenosoft.egresado.logica.bos.BOPrograma;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.AreaInteres;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Ciudad;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Empresa;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.OfertaLaboral;
+import co.edu.eam.disenosoft.egresado.persistencia.entidades.Programa;
 
 public class ControladorBolsa {
 	
 	private BOOfertaLaboral boOfertaLaboral;
 	private BOAreaInteres boAreaInteres;
 	private BOCiudad boCiudad;
+	private BOPrograma boPrograma;
 	
 	public ControladorBolsa() {
 		boOfertaLaboral = new BOOfertaLaboral();
 		boAreaInteres= new BOAreaInteres();
 		boCiudad = new BOCiudad();
+		boPrograma = new BOPrograma();
 	}
 	
 	/**
@@ -128,8 +132,14 @@ public class ControladorBolsa {
 		return boOfertaLaboral.listaEmpresa();
 	}
 
-	
-
+	/**
+	 * Lista de programas
+	 * @return lista de programas
+	 * @throws Exception
+	 */
+	public List<Programa> listaPrograma () throws Exception{
+		return boPrograma.listaPrograma();
+	}
 		
 
 
