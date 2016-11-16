@@ -24,12 +24,16 @@ import co.edu.eam.disenosoft.egresado.persistencia.entidades.Programa;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.SectorLaboral;
 
 /**
- * Controlador Egresado
+ * Controlador Egresado en el cual se hace uso de los BO 
  * @author CAMILO
  *
  */
 public class ControladorAdministrarEgresado {
 
+	/**
+	 * se llama los bo de cada una de las entidades
+	 */
+	
 	private BOEgresado boEgresado;
 	private BOPrograma boPrograma;
 	private BOInformacionAcademica boInfoAc;
@@ -40,6 +44,9 @@ public class ControladorAdministrarEgresado {
 	private BOEmpresa boEmpresa;
 	private BOAplicarOferta boAplicarOferta;
 	
+	/**
+	 * constructor de la clase
+	 */
 	public ControladorAdministrarEgresado() {
 		boEgresado = new BOEgresado();
 		boPrograma = new BOPrograma();
@@ -71,9 +78,9 @@ public class ControladorAdministrarEgresado {
 	}
 	
 	/**
-	 * 
-	 * @param id
-	 * @return
+	 * metodo que busca un programa 
+	 * @param id objeto por el cual se busca el prorama
+	 * @return la busqueda desde su respectivo bo
 	 * @throws Exception
 	 */
 	public Programa buscarPrograma(int id) throws Exception {
@@ -82,8 +89,8 @@ public class ControladorAdministrarEgresado {
 	
 	/**
 	 * Busca un egresado
-	 * @param idEgresado
-	 * @return
+	 * @param idEgresado objeto por el cual se hace la busqueda 
+	 * @return la busqueda desde su respectivo bo
 	 */
 	public Egresado buscarEgresado(int idEgresado) {
 		return boEgresado.buscarEgresado(idEgresado);
@@ -98,18 +105,27 @@ public class ControladorAdministrarEgresado {
 		boInfoAc.crearInformacionAcademica(informacionAc);
 	}
 	
+	/**
+	 * metodo que busca desde el bo de la informacion academica
+	 * @param egre objeto por el cual se va a buscar inf academica
+	 * @return la busqueda desde su respectivo bo
+	 */
 	public InformacionAcademica buscarInformacionAcademica(int egre) {
 		return boInfoAc.buscarInformacionAcademica(egre);
 	}
 	
-	
+	/**
+	 * metodo que edita desde el bo la informacion academica
+	 * @param informacionAcademica objeto por el cual se va a editar la inf academica
+	 * @throws Exception
+	 */
 	public void editarInformacionAcademica(InformacionAcademica informacionAcademica) throws Exception {
 		boInfoAc.editarInformacionAcademica(informacionAcademica);
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * lista las faacultades que hay registradas
+	 * @return la lista de las facultades por medio de su respectivo bo
 	 * @throws Exception
 	 */
 	public List<Facultad> listaFacultades() throws Exception {
@@ -117,56 +133,103 @@ public class ControladorAdministrarEgresado {
 	}
 	
 	/**
-	 * 
-	 * @return
-	 * @throws Exception
+	 * lista los programas que hay registrados
+	 * @return la lista de los programas por medio de su respectivo
+	 * @throws Exception 
 	 */
 	public List<Programa> listaProgramas() throws Exception{
 		return boInfoAc.listaProgramas();
 	}
 	
 	/**
-	 * 
-	 * @param infoLab
+	 * metodo que crea una informacion laboral por medio de su respectivo bo
+	 * @param infoLab objeto por el cual se va a creaer la informacion laboral
 	 * @throws Exception
 	 */
 	public void crearInformacionLaboral(InformacionLaboral infoLab) throws Exception {
 		boInfoLab.crearInformacionLaboral(infoLab);
 	}
 	
-	
+	/**
+	 * lista los sectores laborales ya creados
+	 * @return la lista de los sectores por medio de su respectivo bo
+	 * @throws Exception
+	 */
 	public List<SectorLaboral> listaLaboral() throws Exception {
 		return boInfoLab.listaLaboral();
 	}
 	
+	/**
+	 * edota una informacion laboral ya creada por medio de su respectivo bo
+	 * @param infoLab objeto por el cual se va a editar la informacion laboral 
+	 * @throws Exception
+	 */
 	public void editarInformacionLaboral(InformacionLaboral infoLab) throws Exception {
 		boInfoLab.editarInformacionLaboral(infoLab);
 	}
-	
+	/**
+	 * metodo que busca una informacion laboral por medio de su respectivo bo
+	 * @param id objeto por el cual se va hacer la busqueda
+	 * @return la busqueda desde su respectivo bo
+	 * @throws Exception
+	 */
 	public InformacionLaboral buscarInformacionLaboral(int id) throws Exception {
 		return boInfoLab.buscarInformacionLaboral(id);
 	}
-	
+	/**
+	 * lista las ofertas laborales
+	 * @return las listas laborales por medio de su respectivo bo
+	 * @throws Exception
+	 */
 	public List<OfertaLaboral> listaOferta() throws Exception {
 		return boOfertaLab.listaOferta();
 	}
 	
+	/**
+	 * metodo que busca una oferta 
+	 * @param idOferta objeto por el cual se va hacer la busqueda
+	 * @return la busqueda desde su respectivo bo
+	 * @throws Exception
+	 */
 	public OfertaLaboral buscarOferta(int idOferta) throws Exception {
 		return boOfertaLab.buscarOferta(idOferta);
 	}
 	
+	/**
+	 * metodo que busca una area de interes
+	 * @param id objeto por el cual se va a realizar la busqueda
+	 * @return la busqueda desde su respectivo bo
+	 * @throws Exception
+	 */
 	public AreaInteres buscarArea (int id) throws Exception{
 		return boAreaInteres.buscarAreaInteres(id);
 	}
 	
+	/**
+	 * metodo que busca una ciudad 
+	 * @param idCiu objeto por el cual se va hacer la busqueda
+	 * @return la busqueda desde su respectivo bo
+	 * @throws Exception
+	 */
 	public Ciudad buscarCiudad (int idCiu) throws Exception{
 		return boCiudad.buscarCiudad(idCiu);
 	}
 	
+	/**
+	 * metodo que busca una empresa
+	 * @param idEmp objeto por el cual se va a buscar la emoresa
+	 * @return la busqueda desde su respectivo bo
+	 * @throws Exception
+	 */
 	public Empresa buscarEmpresa (int idEmp) throws Exception{
 		return boEmpresa.buscarEmpresa(idEmp);
 	}
 	
+	/**
+	 * metodo por el cual se va aplicar una oferta por medio de su bo
+	 * @param aplicarOfer objeto por el cual se va a aplicar la  oferta
+	 * @throws Exception
+	 */
 	public void aplicarOferta(OfertaAplicadaEgresado aplicarOfer) throws Exception {
 		boAplicarOferta.aplicarOferta(aplicarOfer);
 	}
@@ -180,6 +243,11 @@ public class ControladorAdministrarEgresado {
 		return boPrograma.listaPrograma();
 	}
 	
+	/**
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
 	public List<Empresa> listaEmpresa() throws Exception{
 		return boOfertaLab.listaEmpresa();
 	}
