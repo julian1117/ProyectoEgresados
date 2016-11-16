@@ -7,6 +7,7 @@ package co.edu.eam.disenosoft.egresado.vista.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -449,33 +450,41 @@ public class BolsaEmpleo extends javax.swing.JFrame {
 			ofertaLa.setIdCiudad(idCiudad);
 			Programa programa = (Programa) jCBPrograma.getSelectedItem();
 			ofertaLa.setPrograma(programa);
-			ofertaLa.setFechaoferta(jCalendarOferta.getDate());
-			ofertaLa.setFechaofertaCierre(jCalendarCerrar.getDate());
-			ofertaLa.setResumen(jTAResumen.getText());
-			ofertaLa.setIdOferta(Integer.parseInt(jTFIdOferta.getText()));
+			
+			Date fecha = new Date();
+			if(jCalendarOferta.getDate().before(fecha)){
+				ofertaLa.setFechaoferta(jCalendarOferta.getDate());
+				ofertaLa.setFechaofertaCierre(jCalendarCerrar.getDate());
+				ofertaLa.setResumen(jTAResumen.getText());
+				ofertaLa.setIdOferta(Integer.parseInt(jTFIdOferta.getText()));
 
-			Empresa emp = (Empresa) jCBIdEmpresa.getSelectedItem();
+				Empresa emp = (Empresa) jCBIdEmpresa.getSelectedItem();
 
-			// int idE = (Integer) jCBIdEmpresa.getSelectedItem();
-			Empresa empre = conBolsa.buscarEmpresa(emp.getId());
+				// int idE = (Integer) jCBIdEmpresa.getSelectedItem();
+				Empresa empre = conBolsa.buscarEmpresa(emp.getId());
 
-			ofertaLa.setIdempresa(empre);
-			ofertaLa.setRequisitoOferta(jTARequerimientosOferta.getText());
-			ofertaLa.setDescripcionOferta(jTADescripcionOferta.getText());
+				ofertaLa.setIdempresa(empre);
+				ofertaLa.setRequisitoOferta(jTARequerimientosOferta.getText());
+				ofertaLa.setDescripcionOferta(jTADescripcionOferta.getText());
 
-			boolean cerrado;
-			// valida que el checkPostgrado este true o false
-			if (jCheckBox1.isSelected() == true) {
-				cerrado = true;
-			} else {
-				cerrado = false;
+				boolean cerrado;
+				// valida que el checkPostgrado este true o false
+				if (jCheckBox1.isSelected() == true) {
+					cerrado = true;
+				} else {
+					cerrado = false;
+				}
+
+				ofertaLa.setCerrarOferta(cerrado);
+
+				conBolsa.crearOfertaLaboral(ofertaLa);
+				JOptionPane.showMessageDialog(null, "La oferta laboral ha sido creada!!");
+				limpiarCampos();
+			}else{
+				JOptionPane.showMessageDialog(null, "La fecha ingresada es mayor a la fecha actual");
 			}
-
-			ofertaLa.setCerrarOferta(cerrado);
-
-			conBolsa.crearOfertaLaboral(ofertaLa);
-			JOptionPane.showMessageDialog(null, "La oferta laboral ha sido creada!!");
-			limpiarCampos();
+			
+			
 
 		} catch (ExcepcionNegocio exN) {
 			JOptionPane.showMessageDialog(null, exN.getMessage());

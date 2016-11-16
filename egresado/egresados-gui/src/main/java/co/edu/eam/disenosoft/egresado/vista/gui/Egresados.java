@@ -18,6 +18,8 @@ import co.edu.eam.disenosoft.egresado.persistencia.entidades.OfertaLaboral;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Programa;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.SectorLaboral;
 import co.edu.eam.disenosoft.egresado.vista.controlador.ControladorAdministrarEgresado;
+
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -1124,14 +1126,22 @@ public class Egresados extends javax.swing.JFrame {
 			infoAc.setAreaConocimiento(jTAAreasED.getText());
 			infoAc.setEgresado(egre);
 			infoAc.setFacultad((String) jCBFacultadED.getSelectedItem());
-			infoAc.setFechaGrado(jDCFechaGrado.getDate());
-			infoAc.setMaximoNivelAcademico((String) jCBNivelAlcED.getSelectedItem());
-			infoAc.setNumeroDiploma(jTFNumeroDiplomaED.getText());
-			infoAc.setProgramaAcademico((String) jCBProgramaED.getSelectedItem());
+			
+			Date fecha = new Date();
+			if(jDCFechaGrado.getDate().before(fecha)){
+				infoAc.setFechaGrado(jDCFechaGrado.getDate());
+				infoAc.setMaximoNivelAcademico((String) jCBNivelAlcED.getSelectedItem());
+				infoAc.setNumeroDiploma(jTFNumeroDiplomaED.getText());
+				infoAc.setProgramaAcademico((String) jCBProgramaED.getSelectedItem());
 
-			contEgresado.crearInformacionAcademica(infoAc);
-			limpiarEducacion();
-			JOptionPane.showMessageDialog(null, "Informacion academica del egresado creada con exito");
+				contEgresado.crearInformacionAcademica(infoAc);
+				limpiarEducacion();
+				JOptionPane.showMessageDialog(null, "Informacion academica del egresado creada con exito");
+			}else{
+				JOptionPane.showMessageDialog(null, "La fecha de grado no puede ser mayor a la actual");
+			}
+			
+			
 
 		} catch (ExcepcionNegocio ex) {
 			JOptionPane.showMessageDialog(null, ex.getMessage());
@@ -1142,19 +1152,24 @@ public class Egresados extends javax.swing.JFrame {
 	}// GEN-LAST:event_JBTGuardarRegEdicacionActionPerformed
 
 	private void jBBuscarREgistroEducacionActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBBuscarREgistroEducacionActionPerformed
-		int egre = Integer.parseInt(jTFIdDelEgresado.getText());
-		InformacionAcademica infoAc = contEgresado.buscarInformacionAcademica(egre);
-		if (infoAc != null) {
-			jCBFacultadED.setSelectedItem(infoAc.getFacultad());
-			jCBProgramaED.setSelectedItem(infoAc.getProgramaAcademico());
-			jTAAreasED.setText(infoAc.getAreaConocimiento());
-			jDCFechaGrado.setDate(infoAc.getFechaGrado());
-			jTFNumeroDiplomaED.setText(infoAc.getNumeroDiploma());
-			jCBNivelAlcED.setSelectedItem(infoAc.getMaximoNivelAcademico());
-			
-		} else {
-			JOptionPane.showMessageDialog(null, "La informacion academica del egresado no existe");
+		if(!jTFIdDelEgresado.getText().isEmpty()){
+			int egre = Integer.parseInt(jTFIdDelEgresado.getText());
+			InformacionAcademica infoAc = contEgresado.buscarInformacionAcademica(egre);
+			if (infoAc != null) {
+				jCBFacultadED.setSelectedItem(infoAc.getFacultad());
+				jCBProgramaED.setSelectedItem(infoAc.getProgramaAcademico());
+				jTAAreasED.setText(infoAc.getAreaConocimiento());
+				jDCFechaGrado.setDate(infoAc.getFechaGrado());
+				jTFNumeroDiplomaED.setText(infoAc.getNumeroDiploma());
+				jCBNivelAlcED.setSelectedItem(infoAc.getMaximoNivelAcademico());
+				
+			} else {
+				JOptionPane.showMessageDialog(null, "La informacion academica del egresado no existe");
+			}	
+		}else{
+			JOptionPane.showMessageDialog(null, "Por favor ingrese el 'Id del egresado' ");
 		}
+		
 	}// GEN-LAST:event_jBBuscarREgistroEducacionActionPerformed
 
 	private void jBAnteriorOAActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBAnteriorOAActionPerformed
@@ -1163,23 +1178,28 @@ public class Egresados extends javax.swing.JFrame {
 
 	private void jBRegistroInfoLaboralActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBRegistroInfoLaboralActionPerformed
 		try {
-			InformacionLaboral infoLab = new InformacionLaboral();
-			Egresado egre = contEgresado.buscarEgresado(Integer.parseInt(jTFIdDelEgresadoB.getText()));
+			if(!jTFIdDelEgresadoB.getText().isEmpty()&& JCBPrograma.getSelectedIndex() != 0 ){
+				InformacionLaboral infoLab = new InformacionLaboral();
+				Egresado egre = contEgresado.buscarEgresado(Integer.parseInt(jTFIdDelEgresadoB.getText()));
 
-			infoLab.setCargoEmpresa(jTFCargoEmpOA.getText());
-			infoLab.setEgresado(egre);
-			infoLab.setFechaIngreso(jCFechaingreso.getDate());
-			infoLab.setFechaSalida(jCFechaSalida.getDate());
-			Empresa empresa = (Empresa) jCBEmpresa.getSelectedItem();
-			infoLab.setEmpresa(empresa);
-			infoLab.setSectorLaboral((String) jCBSectorLaboral.getSelectedItem());
-			infoLab.setSitucionLaboral((String) jCBLaboralAcOA.getSelectedItem());
-			infoLab.setTipoEmpresa((String) jCBTipoEmpresaOA.getSelectedItem());
-			Programa programa = (Programa) JCBPrograma.getSelectedItem();
-			infoLab.setPrograma(programa);
-			contEgresado.crearInformacionLaboral(infoLab);
-			limoiarInfLaboral();
-			JOptionPane.showMessageDialog(null, "Informacion laboral del egresado guardada con exito");
+				infoLab.setCargoEmpresa(jTFCargoEmpOA.getText());
+				infoLab.setEgresado(egre);
+				infoLab.setFechaIngreso(jCFechaingreso.getDate());
+				infoLab.setFechaSalida(jCFechaSalida.getDate());
+				Empresa empresa = (Empresa) jCBEmpresa.getSelectedItem();
+				infoLab.setEmpresa(empresa);
+				infoLab.setSectorLaboral((String) jCBSectorLaboral.getSelectedItem());
+				infoLab.setSitucionLaboral((String) jCBLaboralAcOA.getSelectedItem());
+				infoLab.setTipoEmpresa((String) jCBTipoEmpresaOA.getSelectedItem());
+				Programa programa = (Programa) JCBPrograma.getSelectedItem();
+				infoLab.setPrograma(programa);
+				contEgresado.crearInformacionLaboral(infoLab);
+				limoiarInfLaboral();
+				JOptionPane.showMessageDialog(null, "Informacion laboral del egresado guardada con exito");
+			}else{
+				JOptionPane.showMessageDialog(null, "Por favor verifique que el campo 'Id Egresado' y combos esten llenos");
+			}
+			
 
 		} catch (ExcepcionNegocio ex) {
 			JOptionPane.showMessageDialog(null, ex.getMessage());
