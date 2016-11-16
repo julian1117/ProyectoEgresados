@@ -1165,7 +1165,7 @@ public class Egresados extends javax.swing.JFrame {
 			infoLab.setTipoEmpresa((String) jCBTipoEmpresaOA.getSelectedItem());
 
 			contEgresado.crearInformacionLaboral(infoLab);
-
+			limoiarInfLaboral();
 			JOptionPane.showMessageDialog(null, "Informacion laboral del egresado guardada con exito");
 
 		} catch (ExcepcionNegocio ex) {
@@ -1416,13 +1416,32 @@ public class Egresados extends javax.swing.JFrame {
 		jComboProg.setSelectedIndex(0);
 	}
 	
+	/**
+	 * limpia los campos de la pestaña educacion
+	 */
 	public void limpiarEducacion(){
+		jTFIdDelEgresado.setText(null);
+		jTFIdDelEgresadoB.setText(null);
 		jCBFacultadED.setSelectedItem(null);
 		jCBProgramaED.setSelectedItem(null);
 		jTAAreasED.setText(null);
 		jDCFechaGrado.setDate(null);
 		jTFNumeroDiplomaED.setText(null);
 		jCBNivelAlcED.setSelectedIndex(0);
+	}
+	
+	/**
+	 * limpia los campos de informacion laboral
+	 */
+	public void limoiarInfLaboral(){
+		jTFIdDelEgresadoB.setText(null);
+		jCBLaboralAcOA.setSelectedIndex(0);
+		jCBSectorLaboral.setSelectedIndex(0);
+		jCBTipoEmpresaOA.setSelectedIndex(0);
+		jCBEmpresa.setSelectedIndex(0);
+		jTFCargoEmpOA.setText(null);
+		jCFechaingreso.setDate(null);
+		jCFechaSalida.setDate(null);
 	}
 	
 	
