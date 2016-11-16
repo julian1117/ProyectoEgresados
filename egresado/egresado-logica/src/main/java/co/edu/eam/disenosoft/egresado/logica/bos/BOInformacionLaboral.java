@@ -8,18 +8,30 @@ import co.edu.eam.disenosoft.egresado.persistencia.entidades.InformacionLaboral;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.SectorLaboral;
 import co.edu.eam.disenosoft.egresado.persistencia.implementaciones.jpa.DAOInformacionLaboralJPA;
 
+/**
+ * Clase encarga de hacer las validaciones necesarias para el correcto
+ * funcionamiento de la aplicacion durante la ejecucion de los metodos
+ * @author laura posada
+ *
+ */
 public class BOInformacionLaboral {
 
+	/**
+	 * se llama el dao de la informacion laboral 
+	 */
 	private DAOInformacionLaboralJPA daoInfoLab;
 
+	/**
+	 * constructor de la clase
+	 */
 	public BOInformacionLaboral() {
 		daoInfoLab = new DAOInformacionLaboralJPA();
 	}
 
 	/**
-	 * 
-	 * @param infoLab
-	 * @throws Exception
+	 * crea una informacion laboral 
+	 * @param infoLab objeto por el cual va a ser creada la oferta
+	 * @throws Exception oferta laboral ya sido creada
 	 */
 	public void crearInformacionLaboral(InformacionLaboral infoLab) throws Exception {
 		InformacionLaboral infoLa = daoInfoLab.buscarInformacionLaboral(infoLab.getEgresado().getId());
@@ -32,9 +44,9 @@ public class BOInformacionLaboral {
 	}
 
 	/**
-	 * 
-	 * @param infoLab
-	 * @throws Exception
+	 * edita una oferta laboral creada 
+	 * @param infoLab objeto por el cual se va a editar la oferta
+	 * @throws Exception la informacion laboral a editra no este creada
 	 */
 	public void editarInformacionLaboral(InformacionLaboral infoLab) throws Exception {
 		InformacionLaboral infoLa = daoInfoLab.buscarInformacionLaboral(infoLab.getEgresado().getId());
@@ -47,9 +59,9 @@ public class BOInformacionLaboral {
 	}
 
 	/**
-	 * 
-	 * @param id
-	 * @return
+	 * busca una informacion laboral 
+	 * @param id objeto por el cual se va a buscar la informacion laboral
+	 * @return la busqueda de la informacion 
 	 * @throws Exception
 	 */
 	public InformacionLaboral buscarInformacionLaboral(int id) throws Exception {
@@ -57,8 +69,8 @@ public class BOInformacionLaboral {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * lista sectores laborales
+	 * @return la lista de los sectores laborales 
 	 * @throws Exception
 	 */
 	public List<SectorLaboral> listaLaboral() throws Exception {

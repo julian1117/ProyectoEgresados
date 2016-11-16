@@ -7,7 +7,12 @@ import co.edu.eam.disenosoft.egresado.persistencia.definiciones.ICiudadDAO;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Ciudad;
 import co.edu.eam.disenosoft.egresado.persistencia.implementaciones.jpa.DAOCiudadJPA;
 
-
+/**
+ * Clase encarga de hacer las validaciones necesarias para el correcto
+ * funcionamiento de la aplicacion durante la ejecucion de los metodos 
+ * @author laura posada
+ *
+ */
 public class BOCiudad implements ICiudadDAO {
 
 	/**
