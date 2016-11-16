@@ -2,6 +2,11 @@ package co.edu.eam.disenosoft.egresado.persistencia.definiciones;
 
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Egresado;
 
+/**
+ * clase para declarar los metodos para egresados
+ * @author laura posada
+ * 16/11/2016
+ */
 public interface IEgresadoDAO {
 
 	/**

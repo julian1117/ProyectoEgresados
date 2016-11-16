@@ -4,6 +4,11 @@ import java.util.List;
 
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Pais;
 
+/**
+ * Clase donde se declaran los metodos para un pais
+ * @author laura posada
+ * 16/11/2016
+ */
 public interface IPais {
 
 	/**

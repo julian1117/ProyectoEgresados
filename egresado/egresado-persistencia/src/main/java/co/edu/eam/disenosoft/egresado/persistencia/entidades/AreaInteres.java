@@ -15,6 +15,9 @@ import javax.persistence.Table;
 @Table(name = "T_AREAINTERES")
 public class AreaInteres implements Serializable {
 
+	/**
+	 * consulta para listar las areas de interes
+	 */
 	public static final String CONSULTA_LISTAR_AREAS = "AreaInteres.listarAreas";
 
 	@Id

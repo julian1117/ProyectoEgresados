@@ -4,7 +4,7 @@ import co.edu.eam.disenosoft.egresado.persistencia.entidades.Programa;
 /**
  * Interface de registro de programa
  * @author CAMILO
- *
+ * 16/11/2016
  */
 public interface IProgramaDAO {
 

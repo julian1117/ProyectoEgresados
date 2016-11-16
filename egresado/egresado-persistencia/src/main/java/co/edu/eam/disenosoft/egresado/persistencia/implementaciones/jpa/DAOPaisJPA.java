@@ -9,6 +9,11 @@ import co.edu.eam.disenosoft.egresado.persistencia.definiciones.IPais;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Pais;
 import co.edu.eam.disenosoft.egresado.persistencia.utilidades.AdministradorEntityManager;
 
+/**
+ * Clase que permite gestionar todos los metodos declarados en la interface
+ * @author laura posada
+ *
+ */
 public class DAOPaisJPA implements IPais{
 
 	/**

@@ -9,6 +9,11 @@ import co.edu.eam.disenosoft.egresado.persistencia.definiciones.ICiudadDAO;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Ciudad;
 import co.edu.eam.disenosoft.egresado.persistencia.utilidades.AdministradorEntityManager;
 
+/**
+ * Clase que permite gestionar todos los metodos declarados en la interface
+ * @author laura posada
+ *
+ */
 public class DAOCiudadJPA implements ICiudadDAO{
 
 	/**

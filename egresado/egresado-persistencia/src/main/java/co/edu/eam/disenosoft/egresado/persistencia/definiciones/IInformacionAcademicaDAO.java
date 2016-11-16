@@ -1,18 +1,16 @@
 package co.edu.eam.disenosoft.egresado.persistencia.definiciones;
 
-
-
-
 import java.util.List;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Egresado;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Facultad;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.InformacionAcademica;
-/**
- * 
- * @author CAMILO
- *
- */
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Programa;
+
+/**
+ * clase que declaran los metodos para una informacion academica 
+ * @author CAMILO
+ * 16/11/2016
+ */
 public interface IInformacionAcademicaDAO {
 
 	/**

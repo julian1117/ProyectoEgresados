@@ -13,6 +13,11 @@ import co.edu.eam.disenosoft.egresado.persistencia.entidades.Empresa;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.OfertaLaboral;
 import co.edu.eam.disenosoft.egresado.persistencia.utilidades.AdministradorEntityManager;
 
+/**
+ * Clase que permite gestionar todos los metodos declarados en la interface
+ * @author laura posada
+ *
+ */
 public class DAOOfertaLaboralJPA implements IOfertaLaboral {
 
 	/**
@@ -83,6 +88,9 @@ public class DAOOfertaLaboralJPA implements IOfertaLaboral {
 		return listarCiudad;
 	}
 
+	/**
+	 * lista las ofertas laborales por medio de la consulta 
+	 */
 	public List<OfertaLaboral> listaOferta() throws Exception {
 		EntityManager em = AdministradorEntityManager.getEntityManager();
 		Query q = em.createNamedQuery(OfertaLaboral.LISTAR_OFERTA);

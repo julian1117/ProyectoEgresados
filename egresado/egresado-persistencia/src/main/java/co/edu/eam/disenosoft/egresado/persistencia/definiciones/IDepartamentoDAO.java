@@ -4,6 +4,11 @@ import java.util.List;
 
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Departamento;
 
+/**
+ * clase que declara los metodos para el departamento
+ * @author laura posada
+ * 16/11/2016
+ */
 public interface IDepartamentoDAO {
 	/**
 	 * implementacion del metodo para consultar la lista

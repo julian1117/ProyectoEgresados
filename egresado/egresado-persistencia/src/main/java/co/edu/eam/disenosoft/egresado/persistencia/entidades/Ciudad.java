@@ -24,6 +24,9 @@ import javax.persistence.Table;
 @Table(name="T_CIUDAD")
 public class Ciudad implements Serializable {
 
+	/**
+	 *consulta para listar las ciudades
+	 */
 	public static final String CONSULTA_LISTA_CIUDAD = "Ciudad.listarCiudades"; 
 	
 	@Id

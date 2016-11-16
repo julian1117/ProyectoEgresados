@@ -21,6 +21,9 @@ import javax.persistence.Table;
 @Table(name="T_DEPARTAMENTO")
 public class Departamento implements Serializable {
 	
+	/**
+	 * consulta para listar los departamentos
+	 */
 	public static final String CONSULTA_LISTA_DEPARTAMENTO = "Departamento.listarDepartamentos";
 	
 	@Id
