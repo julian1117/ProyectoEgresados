@@ -22,7 +22,8 @@ import com.mysql.fabric.jdbc.FabricMySQLDataSource;
 
 @NamedQueries({
 	@NamedQuery(name=InformacionLaboral.LISTA_iNFROMACION_LABORAL,query="SELECT i FROM InformacionLaboral i"),
-	@NamedQuery(name=InformacionLaboral.LISTA_INFROMACION_LABORAL_POR_PROGRAMA,query="SELECT i FROM InformacionLaboral i WHERE i.programa=?1")
+	@NamedQuery(name=InformacionLaboral.LISTA_INFROMACION_LABORAL_POR_PROGRAMA,query="SELECT i FROM InformacionLaboral i WHERE i.programa=?1"),
+	@NamedQuery(name=InformacionLaboral.LISTA_INFROMACION_LABORAL_POR_EMPRESA,query="SELECT i FROM InformacionLaboral i WHERE i.empresa=?1")
 })
 
 @Entity
@@ -31,6 +32,7 @@ public class InformacionLaboral implements Serializable {
 
 	public static final String LISTA_iNFROMACION_LABORAL = "InformacionLaboral.listaInfomracionLaboral";
 	public static final String LISTA_INFROMACION_LABORAL_POR_PROGRAMA = "InformacionLaboral.listaInfomracionLaboralPrograma";
+	public static final String LISTA_INFROMACION_LABORAL_POR_EMPRESA = "InformacionLaboral.listaInformacionLabEmpresa";
 	
 	@Id
 	@Column(name="ID_EGRESADO")

@@ -5,6 +5,7 @@ import java.util.List;
 import co.edu.eam.disenosoft.egresado.logica.bos.BOInformacionLaboral;
 import co.edu.eam.disenosoft.egresado.logica.bos.BOOfertaLaboral;
 import co.edu.eam.disenosoft.egresado.logica.bos.BOPrograma;
+import co.edu.eam.disenosoft.egresado.persistencia.entidades.Empresa;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.InformacionLaboral;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.OfertaLaboral;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Programa;
@@ -77,5 +78,25 @@ public class ControladorReportes {
 	 */
 	public List<OfertaLaboral> listaOfertaPrograma(Programa programa) throws Exception {
 		return boOfertaLab.listaOfertaPrograma(programa);
+	}
+	
+	/**
+	 * Lista de empresas
+	 * @return lista de las empresas
+	 * @throws Exception
+	 */
+	public List<Empresa> listaEmpresa () throws Exception{
+		return boOfertaLab.listaEmpresa();
+	}
+	
+	
+	/**
+	 * lista informacion laborla por empresa
+	 * @param empresa objeto que recibe
+	 * @return la lista de la informacion laboral buscada por empresa
+	 * @throws Exception
+	 */
+	public List<InformacionLaboral> listaInformacionLabEmpresa(Empresa empresa) throws Exception {
+		return boInfoLab.listaInformacionLabEmpresa(empresa);
 	}
 }

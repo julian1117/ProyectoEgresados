@@ -17,6 +17,8 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 
+import com.toedter.calendar.JCalendarBeanInfo;
+
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.AreaInteres;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Ciudad;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.Empresa;
@@ -42,10 +44,10 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
 		this.setLocationRelativeTo(this);
 		reporteEgresadosOcupacion();
 		ofertasAbriertas();
-		llenarTablaEmpleadosEmpresa();
-		llenarTablaOfertasPrograma();
 		listaPrgrama();
 		listaPrgramaAcademico();
+		listarEmpresa();
+		prograTabla();
 	}
 
 	/**
@@ -71,9 +73,11 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTEmpleadoEmpresa = new javax.swing.JTable();
+        jCBEmpresa = new javax.swing.JComboBox();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTreporteOfertaProgramas = new javax.swing.JTable();
+        jCBProgramaAca = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -179,6 +183,12 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTEmpleadoEmpresa);
 
+        jCBEmpresa.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCBEmpresaItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -187,12 +197,18 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jCBEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
+                .addComponent(jCBEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -219,20 +235,32 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jTreporteOfertaProgramas);
 
+        jCBProgramaAca.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCBProgramaAcaItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jCBProgramaAca, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
+                .addComponent(jCBProgramaAca, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -332,7 +360,10 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jCProgramaItemStateChanged
-
+   /**
+    * Grafica de barras
+    * @param evt
+    */
     private void jCProgramaAcademicoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCProgramaAcademicoItemStateChanged
     	ChartPanel panel;
 		try {
@@ -376,6 +407,17 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
 		}            
     }//GEN-LAST:event_jCProgramaAcademicoItemStateChanged
 
+    private void jCBEmpresaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCBEmpresaItemStateChanged
+        llenarTablaEmpleadosEmpresa();
+    }//GEN-LAST:event_jCBEmpresaItemStateChanged
+
+    private void jCBProgramaAcaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCBProgramaAcaItemStateChanged
+    	llenarTablaOfertasPrograma();
+    }//GEN-LAST:event_jCBProgramaAcaItemStateChanged
+
+    /**
+     * Grafica de pastel
+     */
 	public void reporteEgresadosOcupacion() {
 		ChartPanel panel;
 		try {
@@ -478,7 +520,9 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
 			DefaultTableModel df = (DefaultTableModel) jTEmpleadoEmpresa.getModel();
 			df.setRowCount(0);
 
-			List<InformacionLaboral> listaInfoLab = contReportes.listaInfomracionLaboral();
+			Empresa empresa = (Empresa) jCBEmpresa.getSelectedItem();
+			
+			List<InformacionLaboral> listaInfoLab = contReportes.listaInformacionLabEmpresa(empresa);
 
 			for (int i = 0; i < listaInfoLab.size(); i++) {
 
@@ -500,8 +544,8 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
 		try {
 			DefaultTableModel df = (DefaultTableModel) jTreporteOfertaProgramas.getModel();
 			df.setRowCount(0);
-
-			List<OfertaLaboral> listOferta = contReportes.listaOfertaLab();
+			Programa programa = (Programa) jCBProgramaAca.getSelectedItem();
+			List<OfertaLaboral> listOferta = contReportes.listaOfertaPrograma(programa);
 
 			for (int i = 0; i < listOferta.size(); i++) {
 				if (listOferta.get(i).isCerrarOferta() == false) {
@@ -544,7 +588,36 @@ public class ReportesEstadisticas extends javax.swing.JFrame {
 
 	}
 	
+	public void listarEmpresa(){
+		try{
+			List<Empresa> listaEmpresa = contReportes.listaEmpresa();			
+			jCBEmpresa.addItem((String)"Seleccion una empresa");
+			for(Empresa empresa: listaEmpresa){
+				jCBEmpresa.addItem(empresa);
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void prograTabla(){
+		
+		try{
+			List<Programa> listaPrograma = contReportes.listaPrograma();
+			jCBProgramaAca.addItem((String) "Seleccione programa");
+			for(Programa programa: listaPrograma){
+				jCBProgramaAca.addItem(programa);
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox jCBEmpresa;
+    private javax.swing.JComboBox jCBProgramaAca;
     private javax.swing.JComboBox jCPrograma;
     private javax.swing.JComboBox jCProgramaAcademico;
     private javax.swing.JLabel jLabel7;

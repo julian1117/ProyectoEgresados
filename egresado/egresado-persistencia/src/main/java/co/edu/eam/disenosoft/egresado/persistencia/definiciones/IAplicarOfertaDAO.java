@@ -16,5 +16,5 @@ public interface IAplicarOfertaDAO {
 	 */
 	public void aplicarOferta (OfertaAplicadaEgresado aplicarOfer) throws Exception;
 	
-//	public OfertaAplicadaEgresado buscarOfertaAplicada (int id) throws Exception;
+	public OfertaAplicadaEgresado buscarOfertaAplicada (OfertaAplicadaEgresado id) throws Exception;
 }

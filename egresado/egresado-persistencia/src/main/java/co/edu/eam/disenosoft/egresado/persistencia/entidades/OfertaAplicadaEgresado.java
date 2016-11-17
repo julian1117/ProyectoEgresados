@@ -34,6 +34,10 @@ public class OfertaAplicadaEgresado implements Serializable {
 		this.egresado = egresado;
 		this.ofertaLaboral = ofertaLaboral;
 	}
+	
+	public OfertaAplicadaEgresado(int egresado, int ofertaLaboral) {
+		OfertaAplicadaEgresadoPK ap = new OfertaAplicadaEgresadoPK(egresado, ofertaLaboral);
+	}
 
 	/**
 	 * @return the egresado

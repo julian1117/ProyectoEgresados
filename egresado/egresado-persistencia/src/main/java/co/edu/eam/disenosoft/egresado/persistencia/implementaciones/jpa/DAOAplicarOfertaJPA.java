@@ -23,8 +23,8 @@ public class DAOAplicarOfertaJPA implements IAplicarOfertaDAO{
 		em.getTransaction().commit();		
 	}
 
-//	public OfertaAplicadaEgresado buscarOfertaAplicada(int id) throws Exception {
-//		EntityManager em = AdministradorEntityManager.getEntityManager();
-//		return em.find(OfertaAplicadaEgresado.class, id);
-//	}
+	public OfertaAplicadaEgresado buscarOfertaAplicada(OfertaAplicadaEgresado id) throws Exception {
+		EntityManager em = AdministradorEntityManager.getEntityManager();
+		return em.find(OfertaAplicadaEgresado.class, id);
+	}
 }

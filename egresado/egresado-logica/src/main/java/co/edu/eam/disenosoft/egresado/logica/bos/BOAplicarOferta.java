@@ -2,6 +2,7 @@ package co.edu.eam.disenosoft.egresado.logica.bos;
 
 import co.edu.eam.disenosoft.egresado.logica.excepcionNegocio.ExcepcionNegocio;
 import co.edu.eam.disenosoft.egresado.persistencia.entidades.OfertaAplicadaEgresado;
+import co.edu.eam.disenosoft.egresado.persistencia.entidades.OfertaAplicadaEgresadoPK;
 import co.edu.eam.disenosoft.egresado.persistencia.implementaciones.jpa.DAOAplicarOfertaJPA;
 
 /**
@@ -31,10 +32,11 @@ public class BOAplicarOferta {
 	 */
 	public void aplicarOferta(OfertaAplicadaEgresado aplicarOfer) throws Exception {
 
-//		OfertaAplicadaEgresado oferta = daoOferta.buscarOfertaAplicada(aplicarOfer.getEgresado().getId());
+//		OfertaAplicadaEgresado oferAplli = new OfertaAplicadaEgresado(aplicarOfer.getEgresado().getId(),aplicarOfer.getOfertaLaboral().getIdOferta());
+//		
+//		OfertaAplicadaEgresado oferta = daoOferta.buscarOfertaAplicada(aplicarOfer);
 //
-//		if (oferta.getEgresado().getId() != aplicarOfer.getEgresado().getId()
-//				&& oferta.getOfertaLaboral().getIdOferta() != aplicarOfer.getOfertaLaboral().getIdOferta()) {
+//		if (oferta != null) {
 			daoOferta.aplicarOferta(aplicarOfer);
 //		} else {
 //			throw new ExcepcionNegocio("Usted ya aplico a esta oferta");
